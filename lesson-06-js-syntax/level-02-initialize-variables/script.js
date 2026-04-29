@@ -7,25 +7,26 @@
 
 // Add your lines below:
 
-const totalCount = 0;
-const firstName = "Vicky";
-const lastName = "Christina";
-const middleName = "Barcelona";
-const favoriteBook = "Tuesdays with Morris";
-const homeTown = "New York";
+/* 5 String variables */
+let totalCount = 0;
+let firstName = "Vicky";
+let lastName = "Christina";
+let middleName = "Barcelona";
+let favoriteBook = "Tuesdays with Morris";
+let homeTown = "New York";
 
+/* 5 Nunber varibales */
+let userAge = 27;
+let playerHealth = 100;
+let zipCode = 90210;
+let outsideTemperature = 64;
+let numberOfLuggage = 3;
 
-const userAge = 27;
-const playerHealth = 100;
-const zipCode = 90210;
-const outsideTemperature = 64;
-const numberOfLuggage = 3;
-
-const city = "Tokyo";
-const playerHealth = 90;
-const itemsInCart = 10;
-const currentScore = 150;
-const arrivalStatus = "Arrived";
+/* To update values later, do NOt use 'const' or 'let' again:*/
+playerHealth = 90;
+itemsInCart = 10;
+currentScore = 150;
+arrivalStatus = "Arrived";
 
 
 export default favoriteBook;
