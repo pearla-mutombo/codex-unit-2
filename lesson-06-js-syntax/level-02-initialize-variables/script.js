@@ -7,13 +7,12 @@
 
 // Add your lines below:
 
-/* 5 String variables */
-let totalCount = 0;
-let firstName = "Vicky";
-let lastName = "Barcelona";
-let middleName = "Christina";
-let favoriteBook = "Tuesdays with Morris";
-let homeTown = "New York";
+const totalCount = 0;
+const firstName = "Vicky";
+const lastName = "Christina";
+const middleName = "Barcelona";
+const favoriteBook = "Tuesdays with Morris";
+const homeTown = "New York";
 
 /* 5 Nunber varibales */
 let userAge = 27;
