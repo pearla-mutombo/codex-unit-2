@@ -31,4 +31,24 @@ const order = {
   },
 };
 
+/*  (in class practice) 5 depth-1 properties to describe variables */
 const id = order.id;
+const status = order.status;
+const name = order.customer.name;
+const tax = order.totals.tax;
+
+/* 5 depth-1 properties to describe variables */
+const orderId = order.id;
+const status = order.status;
+const placedAt = order.placedAt;
+const isGift = order.isGift;
+const shippingMethod = order.shippingMethod;
+
+/*5 depth-2 properties to describe variables */
+const clientName = order.customer.name;
+const clientEmail = order.customer.email; /* depth -2 access via contact */
+const clientCity = order.customer.address.city; /* depth-2 access via address */
+const clientSubtotal = order.totals.subtotal;
+const finalTotal= order.totals.total;
+
+export default orderStatus;
