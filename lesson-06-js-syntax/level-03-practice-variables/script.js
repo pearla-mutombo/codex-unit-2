@@ -9,14 +9,17 @@ let country;
 
 // TODO: Part B: fix five faulty string initializations so they parse correctly.
 
-let = "noName";
+firstName = "noName";
 
-let lastName "Smith";
+lastName = "Smith";
 
-let city = "New York;
+userAge = 21;
 
-let country = ""USA"";
+city = "New York";
 
-let planet = Earth;
+country = "USA";
 
-export default firstame;
+//* This one is the new, so it needs 'let'*/
+ let planet = "Earth";
+
+export default firstName;
