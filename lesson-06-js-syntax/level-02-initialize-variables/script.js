@@ -21,11 +21,11 @@ let zipCode = 90210;
 let outsideTemperature = 64;
 let numberOfLuggage = 3;
 
-/* To update values later, do NOt use 'const' or 'let' again:*/
-playerHealth = 90;
-itemsInCart = 10;
-currentScore = 150;
-arrivalStatus = "Arrived";
+/* To update values later, do NOT use 'const' or 'let' again:*/
+let playerHealth = 90;
+let itemsInCart = 10;
+let currentScore = 150;
+let arrivalStatus = "Arrived";
 
 
 export default favoriteBook;
@@ -54,3 +54,4 @@ console.log("Location Zip:", zipCode);
  
 
 
+ 
