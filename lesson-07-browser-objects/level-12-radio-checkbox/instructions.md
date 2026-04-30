@@ -17,10 +17,16 @@ Read selected radio values and checkbox states via `form.elements` or `FormData`
 ## Hints
 
 - Radios with the same `name` expose the selected value via `.value`.
+- `checked` is a boolean; `value` on radios/inputs is a string.
 
 ## More information
 
-- `checked` is a boolean; `value` on radios/inputs is a string.
+- Radio buttons that share a `name` form a group; when accessed via `form.elements.name` you typically get a `RadioNodeList` whose `.value` reflects the currently selected radio's `value` (or an empty string if none are selected).
+- Checkboxes expose a boolean `checked` property. For a single checkbox use `form.elements.checkboxName.checked` to read its state.
+- Access patterns:
+  - Single radio group: `const color = form.elements.color.value` (selected value as string)
+  - Single checkbox: `const subscribed = form.elements.subscribe.checked` (boolean)
+- Remember types: `.value` is a string, `.checked` is boolean — coerce as needed before using in logic.
 
 ## Usage tips
 
@@ -28,7 +34,7 @@ Read selected radio values and checkbox states via `form.elements` or `FormData`
 
 ## Example
 
-```
+```js
 // small hint
 console.log(form.elements.color.value, form.elements.subscribe.checked);
 ```

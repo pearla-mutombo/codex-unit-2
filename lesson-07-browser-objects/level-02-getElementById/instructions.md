@@ -19,7 +19,8 @@ Use `document.getElementById` to select an element and log its properties (`id`,
 
 ## More information
 
-- `classList` is a DOMTokenList with `add`/`remove` helpers; `attributes` is a NamedNodeMap.
+- `document.getElementById(id)` returns the first Element whose `id` attribute matches `id`, or `null` if no matching element exists. IDs should be unique within a document.
+- The returned value is a live DOM `Element` (or `null`) — check for `null` before accessing properties to avoid runtime errors.
 
 ## Usage tips
 
@@ -28,5 +29,5 @@ Use `document.getElementById` to select an element and log its properties (`id`,
 ## Example
 
 ```js
-const el = document.getElementById("sample");
+const element = document.getElementById("sample");
 ```

@@ -21,7 +21,10 @@ Use the browser console to inspect properties in the `document` object.
 
 ## More information
 
-- `document` represents the loaded HTML document. `document.scripts` is a collection of script elements; `document.styleSheets` lists stylesheets.
+- The DOM (Document Object Model) is a way to representa web page so each element can be inspected and modified.
+- The `document` object a collection of data and methods in web page.
+- `document.scripts` is a collection of script elements.
+- `document.styleSheets` lists stylesheets.
 
 ## Usage tips
 
@@ -32,8 +35,4 @@ Use the browser console to inspect properties in the `document` object.
 ```js
 // Simple console log example
 console.log(document.title);
-console.log(document.URL);
-console.log(document.contentType);
-console.log(document.scripts);
-console.log(document.styleSheets);
 ```

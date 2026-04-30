@@ -18,7 +18,7 @@ Select a form element and log properties: `id`, `name`, `elements.length`, `meth
 
 ## More information
 
-- `method` and `action` control how a form is submitted; `enctype` determines encoding for file uploads.
+- When you select a form (eg., with `document.getElementById(...)`) you receive an `Element` that has access to the values collected by the form.
 
 ## Usage tips
 

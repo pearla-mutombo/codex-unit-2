@@ -19,7 +19,10 @@ Validate one field in the submit handler; on success display a DOM summary and c
 
 ## More information
 
-- Use simple checks (like `if (!value)`) for this exercise — no complex validation required.
+- `form.reset()` restores all form controls to their initial values as defined in the HTML (for example `value`, `checked`, and `selected` attributes). It sets the current value back to the element's default, it does not remove attributes.
+- Calling `form.reset()` dispatches the form's native `reset` event. It does not submit the form and it does not invoke submit handlers.
+- To clear or change individual controls, set `.value`/`.checked` directly; there is no built-in API to reset only one control with `form.reset()`.
+- After resetting, the form's controls reflect their original default state (useful for returning the UI to its initial view after a successful submission).
 
 ## Usage tips
 
@@ -27,7 +30,8 @@ Validate one field in the submit handler; on success display a DOM summary and c
 
 ## Example
 
-```
-// hint-only
-if (name) { form.reset(); }
+```js
+if (shouldReset) {
+  form.reset();
+}
 ```

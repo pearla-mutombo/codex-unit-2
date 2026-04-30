@@ -19,7 +19,7 @@ Update the submit handler to call `event.preventDefault()` before logging and ex
 
 ## More information
 
-- Use this when you want to handle form data in JavaScript without reload.
+- Use `preventDefault` when you want to handle form data in JavaScript without reload.
 
 ## Usage tips
 

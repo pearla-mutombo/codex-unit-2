@@ -15,7 +15,8 @@ Set an element's `innerHTML` to include simple markup (for example a `<strong>` 
 
 ## Hints
 
-- `innerHTML` accepts HTML strings; do not insert untrusted content in production.
+- `innerHTML` accepts plain text and HTML strings.
+- Do not insert untrusted content.
 
 ## More information
 

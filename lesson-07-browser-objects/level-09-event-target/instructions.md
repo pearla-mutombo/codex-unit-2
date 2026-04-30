@@ -19,7 +19,9 @@ Inside a submit handler, inspect `event.target` and `event.currentTarget`, and s
 
 ## More information
 
-- Use `form.elements.name` (where `name` is the control's name) to access controls.
+- `event.target` is the original element that dispatched the event.
+- In a submit handler attached directly to a form, `event.target` is typically the form.
+- If a child element (for example a button) triggers the event, `event.target` may be that child — use `event.currentTarget` or to reliably reference the right element.
 
 ## Usage tips
 
@@ -27,7 +29,7 @@ Inside a submit handler, inspect `event.target` and `event.currentTarget`, and s
 
 ## Example
 
-```
+```js
 // hint-only
 function handleSubmit(event) {
   const form = event.target;
