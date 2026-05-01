@@ -22,7 +22,7 @@ console.log(one.innerHTML);
 //for .item
 const list = document.querySelectorAll(".item");
 list.forEach((el, index) => {
-    listinnerText = "Item" + (index + 1)
+    list.innerText = "Item" + (index + 1)
 });
 
 
