@@ -2,7 +2,7 @@
 
 ## Objective
 
-Use `document.querySelector` and `document.querySelectorAll` to select elements and update their text; iterate a `NodeList` to apply changes.
+Use `document.querySelector` to select an element and update its text.
 
 ## Benefits
 
@@ -11,15 +11,15 @@ Use `document.querySelector` and `document.querySelectorAll` to select elements 
 ## Complete these tasks
 
 - Use `querySelector` to pick one element and change its text.
-- Use `querySelectorAll` to get a `NodeList` and loop to update every `.item`.
 
 ## Hints
 
-- `NodeList` supports `forEach` in modern browsers.
+- `querySelector` accepts a string that looks like a CSS selector.
 
 ## More information
 
-- `querySelector` accepts any valid CSS selector; it returns the first match.
+- `querySelector` accepts any valid CSS selector
+- It returns the first match.
 
 ## Usage tips
 
@@ -28,7 +28,5 @@ Use `document.querySelector` and `document.querySelectorAll` to select elements 
 ## Example
 
 ```js
-document
-  .querySelectorAll(".item")
-  .forEach((el, i) => (el.innerText = "Item " + (i + 1)));
+document.querySelector("div");
 ```

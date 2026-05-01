@@ -1,4 +1,12 @@
-// Level 08 starter script
-// TODO: Save a target element and set its innerText to briefly compare GET and POST.
+// Level 07 starter script
+// TODO: Build a data object from form.elements and use fetch POST to https://api.jsoning.com/mock/public/users
+const form = document.getElementById("sample-form");
 const result = document.getElementById("result");
-// Example: result.innerText = 'GET is for reading; POST is for sending data.'
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  // TODO: collect values via form.elements[0].value, form.elements[1].value, form.elements[2].value
+  // build a data object and post it with fetch; then set result.innerText explaining how data is attached
+}
+
+if (form) form.onsubmit = handleSubmit;

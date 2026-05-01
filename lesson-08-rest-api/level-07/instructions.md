@@ -1,41 +1,43 @@
-# Level 07 — Send form data with POST
+# Level 07 — Fetch options
 
 ## Objective
 
-Send the pre-processed data object as a POST to `https://postman-echo.com/post` and inspect the echoed response.
+This level practices adding fetch options to send a POST request and inspecting how request bodies are attached.
 
 ## Benefits
 
-- **End-to-end**: Practice sending JSON payloads and inspecting server echoes.
-- **Real requests**: See how data is transmitted in POST bodies.
+- **Build fetch options**: learn to set `method` and `body`.
+- **Request formatting**: understand why bodies must be formatted correctly.
 
 ## Complete these tasks
 
-- **Inputs may not have names**: the provided form's inputs do not include `name` attributes.
-- **Build data**: use `form.elements[index]` to read values (for example `form.elements[0].value`) and construct a `data` object with descriptive keys.
-- **POST**: use `async`/`await` to fetch POST `https://postman-echo.com/post` with the `data` attached in the request body.
-- **Explain**: set a target element's `innerText` explaining how data is attached to a POST request.
+- Ensure the form inputs have `name` attributes.
+- In `script.js`, implement a form handler attached to `form.onsubmit` and call `event.preventDefault()`.
+- Use `form.elements` to collect input values into a `data` object whose keys match input `name` attributes.
+- Use `async/await` to call `fetch('https://api.jsoning.com/mock/public/users', { method: 'POST', body: data })`.
+- Insert a short explanation into the `#result` element describing how the data was attached to the request.
 
 ## Hints
 
-- Use `fetch(url, { method: 'POST', headers: { 'Content-Type':'application/json' }, body: JSON.stringify(data) })`.
-- The echo server will include your sent data in the response JSON.
+- Use `form.elements['username'].value` or numeric indexes like `form.elements[0].value`.
+- The data is intentionally not stringified for this exercise.
+- The server expects a properly formatted body; leaving the object un-stringified will surface an error to debug.
 
 ## More information
 
-- POST requests send a body; when sending JSON set `Content-Type: application/json` and `JSON.stringify(data)`.
-- Servers echoing requests are useful for testing client behavior.
+- `fetch` accepts an options object where `method` and `body` are commonly set for POST requests.
+- Further reading: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 
 ## Usage tips
 
-- Choose clear keys for your `data` object (for example `{ a: ..., b: ..., c: ... }`) when inputs have no `name` attributes.
+- Attach `script.js` with `defer` so the DOM is available when the script runs.
 
 ## Example
 
 ```js
-await fetch("https://postman-echo.com/post", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(data),
-});
+async function handleSubmit(e) {
+  e.preventDefault();
+  // const data = { username: form.elements['username'].value, email: form.elements['email'].value };
+  // await fetch('https://api.jsoning.com/mock/public/users', { method: 'POST', body: data });
+}
 ```

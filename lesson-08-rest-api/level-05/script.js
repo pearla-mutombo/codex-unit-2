@@ -1,9 +1,9 @@
 // Level 05 starter script
-// TODO: Fetch GET https://postman-echo.com/get, await response.json(), and read response.url and selected headers.
+// TODO: Fetch GET https://api.jsoning.com/mock/public/users, await response.json(), and read display the data.
 const form = document.getElementById("sample-form");
-const pUrl = document.getElementById("url");
-const pHost = document.getElementById("host");
-const pEnc = document.getElementById("encoding");
+const pUsername = document.getElementById("username");
+const pEmail = document.getElementById("email");
+const pId = document.getElementById("id");
 
 async function handleSubmit(e) {
   e.preventDefault();

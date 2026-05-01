@@ -5,7 +5,7 @@ const result = document.getElementById("result");
 
 async function handleSubmit(event) {
   event.preventDefault();
-  // TODO: use async/await to call fetch('https://postman-echo.com/get') and then set result.innerText
+  // TODO: use async/await to call fetch('https://api.jsoning.com/mock/public/users') and then set result.innerText
 }
 
 if (form) form.onsubmit = handleSubmit;

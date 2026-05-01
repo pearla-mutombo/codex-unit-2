@@ -11,7 +11,7 @@ Inspect the fetched `Response` object and parse the JSON payload returned by the
 
 ## Complete these tasks
 
-- **Async/await**: use `async`/`await` during the `fetch` call.
+- **Async/await**: use `async`/`await` during the `fetch` call to `https://api.jsoning.com/mock/public/users`.
 - **Parse JSON**: call `response.json()` and `await` the parsed JSON.
 - **Explain parsing**: set a target element's `innerText` describing parsing the response.
 

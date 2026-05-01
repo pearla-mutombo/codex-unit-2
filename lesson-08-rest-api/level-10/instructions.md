@@ -1,45 +1,37 @@
-# Level 10 — Apply what you learned
+# Level 10 — Display response data
 
 ## Objective
 
-Build a complete form flow: create the form, collect values, POST to the echo server, and render response fields back into the page.
+Send a POST with form data, parse the response, and display selected response values in the page.
 
 ## Benefits
 
-- **Integration**: Combines form handling, fetch, async/await, and DOM updates.
-- **Capstone**: Demonstrates full end-to-end client behavior.
+- **Verification**: Confirms the server received the expected payload.
+- **UI rendering**: Practice mapping response fields into the DOM.
 
 ## Complete these tasks
 
-- **Attach script**: ensure `script.js` is included in the `head` with `defer`.
-- **Create form**: the HTML contains a form with three inputs and a submit button.
-- **Name attributes**: form inputs have `name` attributes.
-- **Handler**: implement a form handler in `script.js` and save the form element to `form`.
-- **Attach handler**: set `form.onsubmit` to the handler and call `event.preventDefault()`.
-- **Collect values**: use `form.elements` to access the three values and build a `data` object with matching keys.
-- **POST**: use `async`/`await` to send the `data` to `https://postman-echo.com/post` (attach JSON body).
-- **Parse response**: await and parse the JSON response.
-- **Render**: store three pieces of response data into variables and insert each into three elements' `innerText`.
+- **POST**: use `async`/`await` to POST to `https://api.jsoning.com/mock/public/users`.
+- **Formath data**: ensure the pre-processed `data` is stringified to `dataString`.
+- **Attach data**: ensure the `dataString` is attached to the request body.
+- **Parse JSON**: await and parse the JSON response.
+- **Select values**: save three values from the response into three variables.
+- **Render**: insert each variable's value into three separate elements' `innerText`.
 
 ## Hints
 
-- Reuse patterns from earlier levels: build `data`, `JSON.stringify`, and `fetch` with `Content-Type: application/json`.
+- The echo server returns your sent JSON under `json` in the response object.
 
 ## More information
 
-- A complete flow validates both client-side code and server echoes; the echo service returns sent JSON under `json`.
+- After posting JSON, the response includes an object like `{json: { ... }}` containing the echoed data.
 
 ## Usage tips
 
-- Test with simple values first and inspect the echoed JSON to find the fields to render.
+- Choose three meaningful fields to show (for example the three form values).
 
 ## Example
 
 ```js
-const data = { one: form.elements["one"].value };
-const res = await fetch(url, {
-  method: "POST",
-  body: JSON.stringify(data),
-  headers: { "Content-Type": "application/json" },
-});
+const r = await fetch(url, {...}); const body = await r.json(); const v = body.json;
 ```

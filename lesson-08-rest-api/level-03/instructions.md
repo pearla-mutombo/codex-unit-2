@@ -2,7 +2,7 @@
 
 ## Objective
 
-Explain `async`/`await` and apply them to a GET request to `https://postman-echo.com/get`.
+Explain `async`/`await` and apply them to a GET request to `https://api.jsoning.com/mock/public/users`.
 
 ## Benefits
 
@@ -19,13 +19,15 @@ Explain `async`/`await` and apply them to a GET request to `https://postman-echo
 
 ## Hints
 
-- Mark the handler `async` and `await fetch(...)`.
+- Mark the handler function as `async` and `await fetch(...)`.
 - Keep the explanation descriptive and short.
 
 ## More information
 
-- `async` marks a function that returns a Promise; `await` pauses execution until the Promise resolves.
-- Use `await response.json()` to parse JSON from a `Response`.
+- `async` marks a function as asynchronous (it may take some time to complete).
+- `await` pauses execution until the the asynchronous operation finishes and returns a value.
+- `Promise` object: will hold a value when the asynchronous operation has finished.
+- While the asynchronous operation is ongoing, the Promise is `pending`.
 
 ## Usage tips
 
@@ -36,6 +38,6 @@ Explain `async`/`await` and apply them to a GET request to `https://postman-echo
 ```js
 async function handleSubmit(e) {
   e.preventDefault();
-  const r = await fetch("https://postman-echo.com/get");
+  const r = await fetch("https://api.jsoning.com/mock/public/users");
 }
 ```

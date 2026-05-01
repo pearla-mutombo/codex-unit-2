@@ -1,36 +1,34 @@
-# Level 09 — Display response data
+# Level 09 — GET vs POST
 
 ## Objective
 
-Send a POST with form data, parse the response, and display selected response values in the page.
+Explain the semantic differences between GET and POST and when to use each.
 
 ## Benefits
 
-- **Verification**: Confirms the server received the expected payload.
-- **UI rendering**: Practice mapping response fields into the DOM.
+- **Correct usage**: Avoids misuse of HTTP verbs in apps.
+- **Best practices**: Helps pick appropriate methods for operations.
 
 ## Complete these tasks
 
-- **POST**: use `async`/`await` to POST to `https://postman-echo.com/post`.
-- **Attach data**: ensure the pre-processed `data` is attached to the request body.
-- **Parse JSON**: await and parse the JSON response.
-- **Select values**: save three values from the response into three variables.
-- **Render**: insert each variable's value into three separate elements' `innerText`.
+- **Select an element**: save a target element to a variable in `script.js`.
+- **Explain**: set the element's `innerText` to a short explanation comparing GET and POST.
 
 ## Hints
 
-- The echo server returns your sent JSON under `json` in the response object.
+- Mention that `GET` is safe/idempotent and `POST` is for sending or changing data.
 
 ## More information
 
-- After posting JSON, the response includes an object like `{json: { ... }}` containing the echoed data.
+- `GET` requests retrieve resources and should not change server state; parameters are in the URL.
+- `POST` requests send a body and are commonly used to create or update resources.
 
 ## Usage tips
 
-- Choose three meaningful fields to show (for example the three form values).
+- Keep the comparison succinct (1–2 sentences).
 
 ## Example
 
 ```js
-const r = await fetch(url, {...}); const body = await r.json(); const v = body.json;
+result.innerText = "GET reads data; POST sends data in the request body.";
 ```

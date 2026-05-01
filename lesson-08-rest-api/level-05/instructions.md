@@ -11,7 +11,7 @@ Read useful properties from the `Response` (URL and selected headers) and displa
 
 ## Complete these tasks
 
-- **GET request**: use `async`/`await` to fetch GET `https://postman-echo.com/get`.
+- **GET request**: use `async`/`await` to fetch GET `https://api.jsoning.com/mock/public/users`.
 - **Parse body**: await `response.json()`.
 - **Save url**: assign `response.url` to a variable.
 - **Save headers**: read `response.headers.get('host')` and `response.headers.get('accept-encoding')` into variables.

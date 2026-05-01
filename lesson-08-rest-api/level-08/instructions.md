@@ -1,34 +1,42 @@
-# Level 08 — GET vs POST
+# Level 07 — Send form data with POST
 
 ## Objective
 
-Explain the semantic differences between GET and POST and when to use each.
+Send the pre-processed data object as a POST to `https://api.jsoning.com/mock/public/users` and inspect the echoed response.
 
 ## Benefits
 
-- **Correct usage**: Avoids misuse of HTTP verbs in apps.
-- **Best practices**: Helps pick appropriate methods for operations.
+- **End-to-end**: Practice sending JSON payloads and inspecting server echoes.
+- **Real requests**: See how data is transmitted in POST bodies.
 
 ## Complete these tasks
 
-- **Select an element**: save a target element to a variable in `script.js`.
-- **Explain**: set the element's `innerText` to a short explanation comparing GET and POST.
+- **Inputs may not have names**: Provide the form's inputs with `name` attributes.
+- **Build data**: use `form.elements` to read values (for example `form.elements.username.value`) and construct a `data` object with descriptive keys.
+- Stringify the `data` with `JSON.stringify` then save the result into `dataString`.
+- **POST**: use `async`/`await` to fetch POST `https://api.jsoning.com/mock/public/users` with the `dataString` attached in the `body`.
+- **Explain**: set a target element's `innerText` explaining how data is attached to a POST request.
 
 ## Hints
 
-- Mention that `GET` is safe/idempotent and `POST` is for sending or changing data.
+- Use `fetch(url, { method: 'POST', body: dataString })`.
+- The echo server will include your sent data in the response JSON.
 
 ## More information
 
-- `GET` requests retrieve resources and should not change server state; parameters are in the URL.
-- `POST` requests send a body and are commonly used to create or update resources.
+- POST requests send a body; when sending JSON set `Content-Type: application/json` and `JSON.stringify(data)`.
+- Servers echoing requests are useful for testing client behavior.
 
 ## Usage tips
 
-- Keep the comparison succinct (1–2 sentences).
+- Choose clear keys for your `data` object (for example `{ a: ..., b: ..., c: ... }`) when inputs have no `name` attributes.
 
 ## Example
 
 ```js
-result.innerText = "GET reads data; POST sends data in the request body.";
+await fetch("https://api.jsoning.com/mock/public/users", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data),
+});
 ```

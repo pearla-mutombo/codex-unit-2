@@ -1,13 +1,13 @@
 // Level 10 starter script
-// TODO: Implement a complete flow: create form, collect values, POST to echo server, render response fields.
+// TODO: POST pre-processed data, parse JSON response, and display three selected values.
 const form = document.getElementById("sample-form");
-const r1 = document.getElementById("r1");
-const r2 = document.getElementById("r2");
-const r3 = document.getElementById("r3");
+const v1 = document.getElementById("v1");
+const v2 = document.getElementById("v2");
+const v3 = document.getElementById("v3");
 
 async function handleSubmit(e) {
   e.preventDefault();
-  // TODO: build data object, POST it, parse response, and display three response values
+  // TODO: collect data, POST to echo server, parse response, and insert values into v1/v2/v3
 }
 
 if (form) form.onsubmit = handleSubmit;
