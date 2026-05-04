@@ -1,36 +1,32 @@
 // Level 05 — querySelector starter
 // TODO: use document.querySelector('#content') or document.querySelectorAll('.item')
 
-// handle the #content element
+// 1. Select the single element with the ID 'content'
 const one = document.querySelector('#content');
 
-// for .item
-const liTag = document.querySelector(".item");
-liTag.innerHTML = "<h1>You want the Blue pill or the Red pill?</h1>";
-console.log(liTag.innerHTML);
-
-// TODO: log previous content and update nodes (iterate NodeList with forEach)
-
-// log previous content Before updating
-console.log('Before (content:', one? one.innerHTML: "Not found");
+// Log previous content before updating
+console.log('Before (content):', one ? one.innerHTML : "Not found");
 
 if (one) {
+    // Update the innerHTML of the #content element
     one.innerHTML = "<h1>The oracle said NEO was the ONE</h1>";
     console.log('After (content):', one.innerHTML);
 }
 
-// handle the .item elements (NodeList)
-const itemList = document.querySelectorAll(".item");
-
-//iterate through the NodeList using forEach
-itemList.forEach(el, index);
-
-//for .item
+// 2. Select ALL elements with the class 'item' (returns a static NodeList)
 const list = document.querySelectorAll(".item");
+
+// Use forEach to iterate through the NodeList and update each element
 list.forEach((el, index) => {
-    el.innerText = "Item" + (index + 1)
+    // Update the textContent or innerText of each item
+    el.innerText = `Item ${index + 1}`;
 });
 
+// For your specific pill-themed log:
+const firstItem = document.querySelector(".item");
+if (firstItem) {
+    console.log("First item's new content:", firstItem.innerText);
+}
 
 // Scaffold:
 // const one = document.querySelector('#content');
