@@ -8,12 +8,15 @@
   <body>
     <h1>Trivia API (Level 05)</h1>
     <form id="trivia-form">
-      <label
-        >Amount: <input name="amount" type="number" value="1" min="1" max="10"
-      /></label>
+      <label>Category: <input name="category" type="text" /></label>
+      <br/>
+      <label>Difficulty:<input name="difficulty" type ="text"/></label>
+      <br/>
       <button type="submit">Get question</button>
     </form>
     <div id="question"></div>
+    <div id="answer"></div>
+    <div id="incorrectAnswers"></div>
 
     <script src="script.js" defer></script>
   </body>
