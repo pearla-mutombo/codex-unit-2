@@ -3,14 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script src="script.js" defer></script>
     <title>Level 06 — Trivia Feedback</title>
   </head>
   <body>
     <h1>Trivia Feedback (Level 06)</h1>
-    <div id="question"></div>
-    <div id="choices"></div>
-    <div id="feedback" aria-live="polite"></div>
-
-    <script src="script.js" defer></script>
+    <form id="trivia-form">
+      <label>Categories: <input name="category" type="text" /></label>
+      <br/>
+      <label>Difficulties:<input name="difficulty" type ="text"/></label>
+      <br/>
+      <button type="submit">Search</button>
+    </form>
+    <div id="feedback"></div>
+    <pre id="question"></pre>
+    <pre id="choices"></pre>
   </body>
 </html>
