@@ -1,37 +1,43 @@
 ## Level 02 — Feedback Message
 
-Objective
+## Objective
+
 Show clear success and error feedback to the user after a login attempt.
 
-Benefits
+## Benefits
 
-- Improves UX by surfacing meaningful API responses.
-- Teaches DOM updates and form lifecycle (resetting).
+- Teaches accessible feedback patterns using DOM APIs.
+- Reinforces parsing API responses for UX messages.
 
-Complete these tasks
+## Complete these tasks
 
-- Add elements with ids `error` and `success` to the page.
-- Select these elements in `script.js` and update them after parsing responses.
-- On success, display a friendly message and call `form.reset()`.
-- On failure, display the API error message in the `error` element.
+- Parse the response into a `result` variable.
+- Select and store the `error` and `success` elements.
+- On login failure, display the API error message in the `error` element (`innerText`).
+- On login success, display a friendly message in the `success` element (`innerText`).
+- On successful login, call `form.reset()`.
 
-Hints
+## Hints
 
-- Use `element.textContent = '...'` and set appropriate ARIA roles.
-- Clear the opposite element when showing an error/success to avoid mixed messages.
+- Use `document.getElementById('error')` and `document.getElementById('success')`.
+- Look for an `error` or `message` field on the parsed `result`.
 
-More information
+## More information
 
-- Keep messages short and actionable. For tests, ensure elements exist and are updated.
+- https://dummyjson.com/docs/auth
+- Example accounts: https://dummyjson.com/users
 
-Usage tips
+## Usage tips
 
-- Use `aria-live` regions so assistive tech announces updates.
+- Use `aria-live` or `role="status"` on feedback elements for screen readers.
 
-Example
+## Example
 
-- Update an element:
-
-```
-errorEl.textContent = 'Login failed: invalid credentials';
+```js
+// After parsing
+if (errorMessage) errorEl.innerText = "Invalid credentials";
+else {
+  successEl.innerText = "Logged in!";
+  form.reset();
+}
 ```

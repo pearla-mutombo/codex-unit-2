@@ -1,31 +1,38 @@
 ## Level 07 — API Keys
 
-Objective
+## Objective
+
 Understand API keys and create one at https://humorapi.com.
 
-Benefits
+## Benefits
 
-- Learn what API keys are and why you must keep them secret.
+- Introduces API key concepts and safe handling patterns.
+- Explains why services require keys and how they track usage.
 
-Complete these tasks
+## Complete these tasks
 
-- Add a message element that explains API keys and how to handle them safely.
+- Add an element with `id="message"` to `index.html`.
+- Include `script.js` in the `head` with `defer`.
+- Select the `message` element and save to a variable.
+- Insert an explanation about API keys into `message` (`innerText` or `innerHTML`).
 
-Hints
+## Hints
 
-- Recommend server-side storage or environment variables in production.
-- For exercises, use mocked keys or public demo keys if provided by the API.
+- Use `document.getElementById('message')` to select the element.
+- Keep the explanation short and avoid revealing private keys.
 
-More information
+## More information
 
-- Never commit real API keys to source control. Use a server-side proxy if you need to hide keys.
+- Explain why API keys are used and how they can track usage.
 
-Usage tips
+## Usage tips
 
-- Show examples of sending keys in headers vs query params but avoid publishing real values.
+- Emphasize that keys are secrets and should not be committed to repositories.
 
-Example
+## Example
 
-```
-// Do not store real keys in client-side code
+```js
+const msg = document.getElementById("message");
+msg.innerText =
+  "API keys identify your app to a service; do not commit them publicly.";
 ```

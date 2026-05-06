@@ -1,41 +1,45 @@
 ## Level 01 — Login API
 
-Objective
+## Objective
+
 Use a fake login API to authenticate a user.
 
-Benefits
+## Benefits
 
-- Improves familiarity with `fetch()` and POST requests.
-- Demonstrates handling JSON request/response.
+- Short hands-on intro to POST requests and JSON payloads.
+- Shows how forms and `fetch()` integrate in the browser.
 
-Complete these tasks
+## Complete these tasks
 
-- Add a login form (username/email + password) in `index.html`.
-- Include `script.js` with `defer` and attach a submit handler.
-- In the handler, call `event.preventDefault()` and build a `data` object.
-- Send a POST request to a dummy login endpoint using `fetch` with JSON headers.
-- Parse the JSON response and show feedback in the UI.
+- Call `event.preventDefault()` in the submit handler.
+- Create a `data` object containing `username` and `password`.
+- Format the `data` object with `JSON.stringify(data)` and save to `dataString`.
+- Use `async`/`await` with `fetch` to `https://dummyjson.com/auth/login`.
+- Use an options object to set `method: 'POST'` and send `dataString` in `body`.
+- Include JSON headers: `"Content-Type": "application/json"`.
+- Store the response in `response` and parse it into `result`.
+- `console.log(result)`.
 
-Hints
+## Hints
 
-- Use `new FormData(form)` or read `form.elements` to get values.
-- Add `Content-Type: application/json` and `body: JSON.stringify(data)`.
-- Use `try`/`catch` when awaiting `fetch()` to handle network errors.
+- Read values from `form.elements` to build the `data` object.
+- Use `await response.json()` to parse the response.
 
-More information
+## More information
 
-- For tests and local development, use a dummy or mock endpoint (do not commit real keys).
+- https://dummyjson.com/auth/login
 
-Usage tips
+## Usage tips
 
-- Keep network calls in `async` functions and use `await` for `fetch()` and `.json()`.
+- For testing, use the example accounts listed in the API docs.
 
-Example
+## Example
 
-- Minimal pattern:
-
-```
-form.addEventListener('submit', async (e) => {
-  // preventDefault, gather data, await fetch, parse response
+```js
+// Minimal POST structure (not a full solution)
+const res = await fetch(url, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: `dataString`,
 });
 ```

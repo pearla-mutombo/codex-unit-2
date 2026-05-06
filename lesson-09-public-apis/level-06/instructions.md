@@ -1,32 +1,38 @@
 ## Level 06 — Trivia Feedback
 
-Objective
-Render a multiple-choice trivia question and present selectable choices.
+## Objective
 
-Benefits
+Render a trivia question and present selectable choices.
 
-- Practices DOM rendering, event handling, and basic state management.
+## Benefits
 
-Complete these tasks
+- Builds UI skills: taking API data and turning it into interactive choices.
+- Reinforces array/object navigation for nested API responses.
 
-- Fetch a question and extract correct and incorrect answers.
-- Shuffle choices, render them as accessible buttons, and wire click handlers.
-- Provide feedback on selection and allow retrying or next question.
+## Complete these tasks
 
-Hints
+- Fetch trivia questions from the endpoint using `async/await`.
+- Save the first question text to `question` (`result[0].question.text`).
+- Place correct and incorrect answers into separate variables.
+- Display question and choices in the DOM.
 
-- Use an array shuffle helper and `button` elements for keyboard accessibility.
+## Hints
 
-More information
+- The first incorrect answer is `result[0].incorrectAnswers[0]`.
+- Combine `correctAnswer` and `incorrectAnswers` for the choice set.
 
-- Keep the feedback clear: show correct/incorrect and an option to continue.
+## More information
 
-Usage tips
+- Sample response shape is in the lesson plan for guidance.
 
-- Disable buttons after selection to avoid multiple submissions.
+## Usage tips
 
-Example
+- Render choices as buttons or radio inputs for easier accessibility.
 
-```
-choices.forEach(text => { const b=document.createElement('button'); b.textContent=text; });
+## Example
+
+```js
+const question = result[0].question.text;
+const correct = result[0].correctAnswer;
+const incorrect = result[0].incorrectAnswers;
 ```

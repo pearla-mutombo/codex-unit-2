@@ -1,35 +1,47 @@
 ## Level 09 — Challenge
 
-Objective
-Build a small client: choose a public API, implement a form, fetch data, paginate or filter results, and show robust feedback.
+## Objective
 
-Benefits
+Build a small client: choose a public API, implement a form, fetch data, and show robust feedback.
 
-- Integrates multiple concepts: fetch, query params, error handling, UI updates.
+## Benefits
 
-Complete these tasks
+- Synthesizes skills from prior levels: forms, query strings/JSON bodies, fetch, and error handling.
+- Encourages independent API selection and basic UX for success/error states.
 
-- Create a form that collects search or filter inputs.
-- Prevent default submit, construct a request URL or body, and fetch data.
-- Render results, implement pagination or filtering, and show error/success feedback.
-- Use at least two lesson concepts (e.g., fetch + query params, or fetch + API key).
+## Complete these tasks
 
-Hints
+- Collect data with a form with at least one input.
+- Call `event.preventDefault()` in the submit handler.
+- Construct a `data` object with `form.elements`.
+- Format `data` with `URLSearchParams` or `JSON.stringify`.
+- Save formatted data into `dataString`.
+- Send `dataString` through the request URL or body.
+- Use `async/await` with `fetch` and parse the `response` into `result`.
+- Display data from `results` to the page.
+- Handle errors with `try/catch`.
+- Display error messages in an element with `id="error"`.
+- Display success messages in an element with `id="success"`.
 
-- Start with a single page that logs the fetched JSON to the console, then display results.
-- For pagination, track `page` and update the request to fetch different slices.
+## Hints
 
-More information
+- Start with a simple public API (e.g., trivia, jokes) and keep requests small.
+- Use `aria-live` regions for feedback so screen readers announce results.
 
-- Choose an API that allows client-side requests or use a server-side proxy for keys.
+## More information
 
-Usage tips
+- Encourage students to pick a public API referenced earlier in this lesson.
 
-- Build incrementally: fetch → render → paginate → add error handling.
+## Usage tips
 
-Example
+- Validate inputs before sending and show clear messages for both success and failure.
 
-```
-// fetch and render flow:
-// 1) build url, 2) await fetch(url), 3) parse json, 4) render list
+## Example
+
+```js
+// High-level flow (not a full solution)
+event.preventDefault();
+const data = { value: form.elements.value.value };
+const dataString = JSON.stringify(data);
+const res = await fetch(url, { method: "POST", body: dataString });
 ```

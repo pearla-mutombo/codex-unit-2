@@ -1,33 +1,42 @@
 ## Level 05 — Trivia API
 
-Objective
-Send a GET request with query parameters to a Trivia API and render a question.
+## Objective
 
-Benefits
+Send a GET request to the Trivia API and render a question.
 
-- Practical experience building query strings and parsing JSON responses.
+## Benefits
 
-Complete these tasks
+- Practice building query strings and rendering API data in the DOM.
+- Reinforces parsing nested objects from JSON responses.
 
-- Use `URLSearchParams` to build query parameters for the trivia endpoint.
-- Fetch questions with `async`/`await` and parse the JSON result.
-- Render the first question's text into the page.
+## Complete these tasks
 
-Hints
+- Build a `data` object from `form.elements`.
+- Convert `data` with `URLSearchParams` and store it in `query`.
+- Use `async`/`await` with `fetch` to `https://the-trivia-api.com/v2/questions`.
+- Attach the query string to the URL (`?` + `query`).
+- Parse the response into `result` and get `result[0].question.text`.
+- Display the question on the page with `innerText` or `innerHTML`.
 
-- Inspect the API response shape in the console before rendering.
+## Hints
 
-More information
+- The first question is at `result[0].question.text`.
+- Fetch defaults to GET when no options object is supplied.
 
-- Many public trivia APIs return an array; pick the first item to display.
+## More information
 
-Usage tips
+- https://the-trivia-api.com/docs/
 
-- Use small `amount` values while developing to simplify rendering.
+## Usage tips
 
-Example
+- Use small, controlled query values when testing to keep responses predictable.
 
-```
-const q = result[0].question.text;
-questionEl.textContent = q;
+## Example
+
+```js
+const url =
+  "https://the-trivia-api.com/v2/questions?" +
+  new URLSearchParams(data).toString();
+const res = await fetch(url);
+const result = await res.json();
 ```

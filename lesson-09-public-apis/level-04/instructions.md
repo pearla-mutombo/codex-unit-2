@@ -1,33 +1,37 @@
 ## Level 04 — Query params
 
-Objective
-Convert a data object to URL query parameters and inspect the result.
+## Objective
 
-Benefits
+Convert a data object to URL query parameters.
 
-- Helps build GET request URLs and understand serialization.
+## Benefits
 
-Complete these tasks
+- Demonstrates how GET requests carry data in the URL.
+- Shows `URLSearchParams` for safe encoding of query strings.
 
-- Read form values using `FormData` or `form.elements`.
-- Build a plain object from the values and construct `URLSearchParams`.
-- Attach the serialized query string to a GET request URL.
+## Complete these tasks
 
-Hints
+- Read form values via `form.elements`.
+- Create a `data` object from form values.
+- Use `URLSearchParams` to convert `data` into a query string.
+- Save the string to `query` and `console.log` it.
 
-- `const params = new URLSearchParams(Object.fromEntries(new FormData(form)))` can help.
+## Hints
 
-More information
+- Use `new URLSearchParams(data)` and call `.toString()` when needed.
+- Only use query strings with the GET method.
 
-- `URLSearchParams` encodes values correctly for query strings.
+## More information
 
-Usage tips
+- Explain `URLSearchParams` and GET query strings.
 
-- Test the generated URL by logging it to the console.
+## Usage tips
 
-Example
+- Keep sensitive data out of query strings; they appear in browser history.
 
-```
-const params = new URLSearchParams({ q: 'search' });
-fetch(`/api?${params.toString()}`)
+## Example
+
+```js
+const params = new URLSearchParams({ category, difficulty });
+const query = params.toString();
 ```

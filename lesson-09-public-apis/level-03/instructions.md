@@ -1,36 +1,44 @@
 ## Level 03 — Error handling
 
-Objective
-Detect and handle network and HTTP errors; surface user-friendly messages.
+## Objective
 
-Benefits
+Detect and handle network and HTTP errors.
 
-- Makes apps resilient to network failures.
-- Teaches use of `try`/`catch` and `response.ok` checks.
+## Benefits
 
-Complete these tasks
+- Builds resilience for flaky networks and API failures.
+- Teaches `try/catch` and error reporting to users and consoles.
 
-- Wrap `fetch` calls in `try`/`catch` and handle thrown errors.
-- Detect non-2xx responses via `response.ok` and surface a message.
-- Write error messages into the error UI element and log as needed.
+## Complete these tasks
 
-Hints
+- Wrap fetch calls in a `try/catch` block.
+- Put handler code into the `try` block.
+- In `catch`, inspect the `error` and use `console.error` to log a message.
+- In `catch`, update the `error` element's `innerText` with an appropriate message.
+- On success, update `success` element and call `form.reset()` where applicable.
 
-- Use `if (!response.ok) throw new Error(await response.text())` or similar.
-- Differentiate between network errors and HTTP errors in messages.
+## Hints
 
-More information
+- Network errors throw; HTTP errors may require checking `response.ok`.
+- Use `console.error(error)` to help debug failing fetches.
 
-- For automated tests, ensure the code checks `response.ok` and writes to the error element.
+## More information
 
-Usage tips
+- Primer on `try/catch` and the error object.
 
-- Keep error messages brief and avoid leaking sensitive info.
+## Usage tips
 
-Example
+- Distinguish user-facing messages from console logs; avoid leaking raw error objects to users.
 
-- Pattern:
+## Example
 
-```
-try { const res = await fetch(url); if (!res.ok) { /* handle */ } } catch (err) {}
+```js
+try {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("HTTP " + response.status);
+  const result = await response.json();
+} catch (err) {
+  console.error(err);
+  errorEl.innerText = "Network error — try again.";
+}
 ```

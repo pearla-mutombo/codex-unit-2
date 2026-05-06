@@ -1,32 +1,39 @@
 ## Level 08 — Joke API
 
-Objective
-Use an API key to fetch content (jokes) and display results in the page.
+## Objective
 
-Benefits
+Use an API key to fetch jokes from https://humorapi.com.
 
-- Shows how API keys are used in real requests and how to handle API errors.
+## Benefits
 
-Complete these tasks
+- Demonstrates passing API keys and handling auth-related errors.
+- Shows how to safely include keys in requests (query or header per API).
 
-- Implement a small fetch that sends the API key in a header or query param as required by the API.
-- Parse and render the joke string into the DOM and handle errors.
+## Complete these tasks
 
-Hints
+- Create a `data` object with an `api-key` property (quoted when hyphenated).
+- Convert `data` into a `queryString` using `URLSearchParams`.
+- Use `async/await` to fetch jokes from the API including the key as required.
+- Parse the response and render a joke into the DOM.
+- Handle errors and display messages when the key is invalid.
 
-- For exercises, use a demo key or mock the network responses; never commit real keys.
+## Hints
 
-More information
+- Put quotes around the `api-key` property: `{ "api-key": 'YOUR_KEY' }`.
+- Use `new URLSearchParams(data)` for query construction.
 
-- If the API returns an invalid-key error, surface a clear message and suggest obtaining a valid key.
+## More information
 
-Usage tips
+- https://humorapi.com/
 
-- Prefer sending keys in headers; show examples but omit real values in code.
+## Usage tips
 
-Example
+- If testing without a real key, stub responses or use a mock endpoint.
 
-```
-// Example header usage (do not include actual keys)
-fetch(url, { headers: { 'x-api-key': 'YOUR_KEY' } })
+## Example
+
+```js
+// Use URLSearchParams for key-in-query examples (API may accept headers instead)
+const qs = new URLSearchParams({ "api-key": "..." }).toString();
+const res = await fetch(url + "?" + qs);
 ```

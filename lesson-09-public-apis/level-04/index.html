@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Level 04 — Query params</title>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <h1>Query params (Level 04)</h1>
@@ -13,9 +14,17 @@
       <label>Difficulty:<input name="difficulty" type ="text"/>></label>
       <br/>
       <button type="submit">Search</button>
+    <h1>Build Query Params</h1>
+    <form id="queryForm">
+      <label>
+        Category
+        <input name="category" />
+      </label>
+      <label>
+        Difficulty
+        <input name="difficulty" />
+      </label>
+      <button type="submit">Build Query</button>
     </form>
-    <pre id="out"></pre>
-
-    <script src="script.js" defer></script>
   </body>
 </html>
