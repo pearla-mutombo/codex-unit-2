@@ -1,28 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Level 03 — Error handling</title>
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <h1>Login (Error Handling)</h1>
+    <title>level 03 — error handling</title>
+</head>
+<body>
+    <h1>login (error handling)</h1>
     <form id="loginForm">
-      <label>
-        Email
-        <input type="email" name="username" required />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" required />
-      </label>
-      <button type="submit">Login</button>
+        <label> username <input type="email" name="username" required /> </label>
+        <label> password <input type="password" name="password" required /> </label>
+        <button type="submit">login</button>
     </form>
-
-    <output id="error" aria-live="polite"></output>
-    <output id="success" aria-live="polite"></output>
-  </body>
+    <output id="error" aria-live="polite" style="color: red;"></output>
+    <output id="success" aria-live="polite" style="color: green;"></output>
+</body>
 </html>
+
