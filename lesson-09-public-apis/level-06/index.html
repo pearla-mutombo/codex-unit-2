@@ -8,23 +8,17 @@
     <title>Level 06 — Trivia Feedback</title>
   </head>
   <body>
-    <h1>Trivia — Choices</h1>
+    <h1>Trivia — Choices (Level 06)</h1>
     <form id="queryForm">
-      <label>
-        Category
-        <input name="category" type="text"/>
-      </label>
-      <br/>
-      <label>
-        Difficulty
-        <input name="difficulty" type="text"/>
-      </label>
-      <br/>
-      <button type="submit">Search</button>
+      <label>Category: <input name="category" type="text"/></label><br/>
+      <label>Difficulty: <input name="difficulty" type="text"/></label><br/>
+      <button type="submit">Get Trivia</button>
     </form>
-
     <div id="question"></div>
-    <div id="choices"></div>
+    <pre id="choiceA"></pre>
+    <pre id="choiceB"></pre>
+    <pre id="choiceC"></pre>
+    <pre id="choiceD"></pre>
     <div id="feedback" aria-live="polite"></div>
   </body>
 </html>
