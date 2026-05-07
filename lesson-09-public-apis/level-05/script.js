@@ -1,41 +1,45 @@
-const { formatDiagnostic } = require("typescript");
-
-const triviaForm = document.getElementById("trivia-form");
-const questionEl = document.getElementById("question");
-const answerEl = document.getElementById("answer");
-const incorrectAnswersEl = document.getElementById("incorrectAnswers");
-
-
-if (triviaForm) {
-  triviaForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const data = {
-      category: triviaForm.elements.category.value,
-      difficulty: triviaForm.elements.difficulty.value,
-    };
-
-    const params = new URLSearchParams(data);
-    const response = await fetch(
-      `https://the-trivia-api.com/v2/questions?${params}`,
-    );
-    const triviaData = await response.json();
-
-    questionEl.innerHTML = triviaData[0].question.text;
-    answerEl.innerHTML = triviaData[0].correctAnswer;
-    incorrectAnswersEl.innerHTML = triviaData[0].incorrectAnswers.join(" ");
-    console.log(triviaData);
-
-    // TODO: preventDefault, build query params with URLSearchParams
-    // TODO: fetch trivia API with async/await then parse JSON
-    // TODO: render result[0].question.text into the page
-
-  });
+// Level 05 - Trivia api
+// Match the ID from the html: "queryForm" 
 const formTag = document.getElementById("queryForm");
+
 formTag.onsubmit = handleSubmit;
 
 async function handleSubmit(event) {
+  // Prevent the page from refreshing immediately
   event.preventDefault();
+
+  const formTag = event.target;
+
+  // Read the values from HTML and create the data object
+  const data = {
+    caterogy: formTag.elements.category.value,
+    difficulty: formTag.elements.catergory.value,
+  };
+
+  // Use URLSearchParams to serialize the data
+  const queryString = new URLSearchParams(data);
+  try {
+  // Fetch the data (note: added await for response.json())
+  const response = await fetch(
+    "https://the-trivia-api.com/v2/questions" + "?" + queryString,
+  );
+  // Parse `result` 
+  const result = await response.json();
+
+  // Display the first "result[0]" question's text into the DOM
+    if (result.length > 0) {
+      // note: the v2 API structure is resul[0].question.text
+    questionDiv.innerText = result[0].question
+    } else {
+    questionDiv.innerText = "No questions found. Try different filters!.";
+    }
+  } catch (error) {
+  console.error("Fetch error:", error);
+  questionDiv.innerText = "Failed tot load question.";
+  }
+}
+  // Display
   // TODO: Build data object from formTag.elements and convert with URLSearchParams
   // TODO: Use async/await with fetch to call https://the-trivia-api.com/v2/questions
   // TODO: Parse `result` and display result[0].question.text into the DOM
-}
+
