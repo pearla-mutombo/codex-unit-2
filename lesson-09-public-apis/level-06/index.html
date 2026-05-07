@@ -6,23 +6,25 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>Level 06 — Trivia Feedback</title>
-    <script src="script.js" defer></script>
   </head>
   <body>
     <h1>Trivia — Choices</h1>
     <form id="queryForm">
       <label>
         Category
-        <input name="category" />
+        <input name="category" type="text"/>
       </label>
+      <br/>
       <label>
         Difficulty
-        <input name="difficulty" />
+        <input name="difficulty" type="text"/>
       </label>
-      <button type="submit">Get Question</button>
+      <br/>
+      <button type="submit">Search</button>
     </form>
 
     <div id="question"></div>
     <div id="choices"></div>
+    <div id="feedback" aria-live="polite"></div>
   </body>
 </html>
