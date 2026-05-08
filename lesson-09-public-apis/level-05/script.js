@@ -12,8 +12,8 @@ async function handleSubmit(event) {
 
   // Read the values from HTML and create the data object
   const data = {
-    caterogy: formTag.elements.category.value,
-    difficulty: formTag.elements.catergory.value,
+    caterogies: formTag.elements.categories.value,
+    difficulties: formTag.elements.difficulties.value,
   };
 
   // Use URLSearchParams to serialize the data
