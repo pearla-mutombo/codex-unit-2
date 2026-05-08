@@ -26,7 +26,7 @@ formTag.onsubmit = handleSubmit;
     // 4. handle non-2xx responses (like invalid API keys/error)
       if (!response.ok) {
         //use the error message from the api or a fallback
-        errorTag.innerText = result.message || "Invalid API Key or request error"
+        errorTag.innerText = result.message || "Invalid API Key or request error";
         return;
       }
     // 5. handle success - a joke into a DOM (Render the "joke" property)
