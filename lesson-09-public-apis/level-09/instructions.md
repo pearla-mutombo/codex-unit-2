@@ -30,7 +30,7 @@ Build a small client: choose a public API, implement a form, fetch data, and sho
 
 ## More information
 
-- Encourage students to pick a public API referenced earlier in this lesson.
+- Pick a public API referenced earlier in this lesson (see each level's `instructions.md` file for suggestions and examples).
 
 ## Usage tips
 
@@ -39,7 +39,6 @@ Build a small client: choose a public API, implement a form, fetch data, and sho
 ## Example
 
 ```js
-// High-level flow (not a full solution)
 event.preventDefault();
 const data = { value: form.elements.value.value };
 const dataString = JSON.stringify(data);

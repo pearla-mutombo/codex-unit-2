@@ -37,4 +37,13 @@ describe("Level 05 — Trivia API", () => {
       /response\.json\(|result\[0\]|question/.test(scriptText),
     ).toBeTruthy();
   });
+
+  it("calls the trivia API endpoint and writes the question to the DOM", () => {
+    expect(
+      /https:\/\/the-trivia-api\.com\/v2\/questions/.test(scriptText),
+    ).toBeTruthy();
+    expect(
+      /(innerText|innerHTML|textContent)\s*=/.test(scriptText),
+    ).toBeTruthy();
+  });
 });

@@ -34,4 +34,14 @@ describe("Level 06 — Trivia Feedback", () => {
       /addEventListener\(|onclick|click\s*=>/.test(scriptText),
     ).toBeTruthy();
   });
+
+  it("fetches questions with async/await and renders question + choices into the DOM", () => {
+    expect(/fetch\(/.test(scriptText)).toBeTruthy();
+    expect(
+      /await\s+fetch|async\s+function|async\s*\(/.test(scriptText),
+    ).toBeTruthy();
+    expect(
+      /(innerText|innerHTML|textContent|appendChild)/.test(scriptText),
+    ).toBeTruthy();
+  });
 });

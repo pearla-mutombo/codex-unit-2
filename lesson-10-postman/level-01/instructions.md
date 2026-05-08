@@ -29,7 +29,3 @@
 ## Usage tips
 
 - Keep Postman open while completing later levels.
-
-## Example
-
-- N/A for this level.

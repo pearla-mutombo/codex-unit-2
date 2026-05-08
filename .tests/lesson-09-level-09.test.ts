@@ -45,4 +45,21 @@ describe("Level 09 — Challenge", () => {
     expect(/error|response\.ok|catch\s*\(/.test(scriptText)).toBeTruthy();
     expect(/page|pagination|next|prev|previous/.test(scriptText)).toBeTruthy();
   });
+
+  it("creates and saves a dataString variable and ensures #error/#success exist and are meaningful", () => {
+    expect(/\bdataString\b/.test(scriptText)).toBeTruthy();
+    // ensure error and success elements exist in the static DOM
+    const err = doc!.querySelector("#error");
+    const suc = doc!.querySelector("#success");
+    expect(err).toBeTruthy();
+    expect(suc).toBeTruthy();
+    // check that the HTML does not contain obvious placeholder text
+    const placeholderRE = /todo|placeholder|lorem|\.{3}/i;
+    expect(
+      err && !placeholderRE.test((err.textContent || "").trim()),
+    ).toBeTruthy();
+    expect(
+      suc && !placeholderRE.test((suc.textContent || "").trim()),
+    ).toBeTruthy();
+  });
 });

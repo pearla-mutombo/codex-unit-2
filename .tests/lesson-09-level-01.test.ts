@@ -51,5 +51,13 @@ describe("Level 01 — Login API", () => {
       ),
     ).toBeTruthy();
     expect(/JSON\.stringify\(/.test(scriptText)).toBeTruthy();
+    // Exact endpoint and POST method are required by the lesson
+    expect(
+      /https:\/\/dummyjson\.com\/auth\/login/.test(scriptText),
+    ).toBeTruthy();
+    expect(/method\s*:\s*['\"]POST['\"]/i.test(scriptText)).toBeTruthy();
+    // Response should be parsed into a `result` variable and logged
+    expect(/\bresult\b/.test(scriptText)).toBeTruthy();
+    expect(/console\.log\(\s*result\s*\)/.test(scriptText)).toBeTruthy();
   });
 });

@@ -11,24 +11,23 @@
 
 ## Complete these tasks
 
-- Use a public test POST endpoint (e.g., https://jsonplaceholder.typicode.com/posts).
-- Send a POST with minimal body data and inspect the response in Postman.
+- Send a POST request to `https://dummyjson.com/auth/login`.
+- Inspect the response status and body.
+- Read the API docs for required fields at `https://dummyjson.com/docs/auth`.
+- Use `script.js` to `console.log` one fact learned from the documentation.
 
 ## Hints
 
-- In Postman, select POST as the method and use the Body → raw → JSON option.
+- In Postman, select POST as the method.
 - Look for a 201 or 200 status to confirm the request succeeded.
 
 ## More information
 
-- POST requests are commonly used to create resources; responses often include the created item or an ID.
+- POST requests are commonly used to create resources. Responses often include the created item or an ID.
+- To sending a POST request in Postman, set the request method to `POST` and enter the URL.
+- Postman will add the header `Content-Type: application/json` for raw JSON bodies, but check the `Headers` tab to confirm or add custom headers as needed.
+- Use the `Preview` / `Pretty` response view after clicking `Send` to inspect the returned status and JSON body. Look for a `201` or `200` status.
 
 ## Usage tips
 
 - Set the request body to raw JSON and preview in Postman before sending.
-
-## Example
-
-```
-// Do this in Postman first; script.js can be used later to practice.
-```

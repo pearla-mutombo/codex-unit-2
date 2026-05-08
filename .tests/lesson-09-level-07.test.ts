@@ -31,4 +31,12 @@ describe("Level 07 — API Keys", () => {
     ).toBeTruthy();
     expect(/API key|API keys|api key/i.test(scriptText)).toBeTruthy();
   });
+
+  it("script.js is included in head with defer", () => {
+    const head = doc!.querySelector("head");
+    expect(head).toBeTruthy();
+    const script = head && head.querySelector("script[src]");
+    expect(script).toBeTruthy();
+    expect(script && script.hasAttribute("defer")).toBeTruthy();
+  });
 });

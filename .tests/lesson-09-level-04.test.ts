@@ -34,4 +34,9 @@ describe("Level 04 — Query params", () => {
   it("appends the generated query string to a GET request URL", () => {
     expect(/\?\+|searchParams|toString\(\)/.test(scriptText)).toBeTruthy();
   });
+
+  it("saves the serialized query to a variable named query and logs it", () => {
+    expect(/\bquery\b\s*=/.test(scriptText)).toBeTruthy();
+    expect(/console\.log\(\s*query\s*\)/.test(scriptText)).toBeTruthy();
+  });
 });

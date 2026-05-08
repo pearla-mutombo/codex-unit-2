@@ -1,6 +1,7 @@
 *
 !.gitignore
-!lesson-**/*
+!lesson-**
+!lesson-**/**/*
 !package.json
 !codex-unit-2.code-workspace
 !*.min.js
