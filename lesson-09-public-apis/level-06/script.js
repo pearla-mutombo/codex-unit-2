@@ -3,7 +3,7 @@ const formTag = document.getElementById("queryForm");
 const questionDiv = document.getElementById("question");
 const feedbackDiv = document.getElementById("feedback");
 
-// tager the choice elements
+// tagert the choice elements
 const choiceTagA = document.getElementById("choiceA");
 const choiceTagB = document.getElementById("choiceB");
 const choiceTagC = document.getElementById("choiceC");
