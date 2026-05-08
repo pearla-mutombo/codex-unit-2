@@ -18,8 +18,8 @@ async function handleSubmit(event) {
   const formTag = event.target;
   //build the data objects and fixed property names to atch API expectations
   const data = {
-    catergory: formTag.elements.category.value,
-    difficulty: formTag.elements.difficulty.value,
+    catergories: formTag.elements.categories.value,
+    difficulties: formTag.elements.difficulties.value,
     limit: 1
   };
   // Use URLSearchParams to serialize the data
