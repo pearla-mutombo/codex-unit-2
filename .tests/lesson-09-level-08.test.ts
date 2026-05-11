@@ -20,9 +20,8 @@ describe("Level 08 — Joke API", () => {
   });
 
   it("includes the API key in a header or query param when making the request", () => {
-    expect(
-      /fetch\(|Authorization|x-api-key|api_key|apiKey/.test(scriptText),
-    ).toBeTruthy();
+    // lesson requires api-key= in the query string specifically
+    expect(/api-key=/.test(scriptText)).toBeTruthy();
   });
 
   it("parses the response and renders a joke string in the DOM", () => {
@@ -34,6 +33,14 @@ describe("Level 08 — Joke API", () => {
   it("handles invalid key errors and shows them to the user", () => {
     expect(
       /invalid|error|401|403|catch\s*\(|response\.ok/.test(scriptText),
+    ).toBeTruthy();
+  });
+
+  it("renders an image/meme by updating an img.src or setting src attribute", () => {
+    expect(
+      /createElement\(['\"]img['\"]\)|\.src\s*=|setAttribute\(['\"]src['\"]\)/.test(
+        scriptText,
+      ),
     ).toBeTruthy();
   });
 });

@@ -34,4 +34,14 @@ describe("Level 03 — Error handling", () => {
     ).toBeTruthy();
     expect(/textContent\s*=|innerText\s*=/.test(scriptText)).toBeTruthy();
   });
+
+  it("logs caught errors with console.error and updates success on success", () => {
+    expect(/console\.error\(/.test(scriptText)).toBeTruthy();
+    expect(/form\.reset\(|reset\(\)/.test(scriptText)).toBeTruthy();
+    expect(
+      /(querySelector\(['\"]#success['\"]\).*\.(innerText|textContent))|(getElementById\(['\"]success['\"]\).*\.(innerText|textContent))/i.test(
+        scriptText,
+      ),
+    ).toBeTruthy();
+  });
 });

@@ -1,8 +1,8 @@
-# Level 05 — Access the headers
+# Level 05 — Access the data
 
 ## Objective
 
-Read useful properties from the `Response` (URL and selected headers) and display them on the page.
+Read useful properties from the parsed results and display them on the page.
 
 ## Benefits
 
@@ -11,30 +11,28 @@ Read useful properties from the `Response` (URL and selected headers) and displa
 
 ## Complete these tasks
 
-- **GET request**: use `async`/`await` to fetch GET `https://api.jsoning.com/mock/public/users`.
-- **Parse body**: await `response.json()`.
-- **Save url**: assign `response.url` to a variable.
-- **Save headers**: read `response.headers.get('host')` and `response.headers.get('accept-encoding')` into variables.
+- **GET request**: use `async`/`await` to fetch GET `https://jsonplaceholder.typicode.com/todos/1`.
+- **Parse body**: await `response.json()` and store it in `result`.
+- **Save data**: assign the `result` properties `userId`, `title`, and `completed` into separate variables.
 - **Render**: insert the three values into three distinct elements' `innerText`.
 
 ## Hints
 
-- Use `response.headers.get('header-name')` to access headers.
-- Not all headers are always present; tests expect `host` and `accept-encoding` from the echo service.
+- Use dot notation to access `result` properties.
 
 ## More information
 
-- `Response.headers` is a `Headers` object; use `.get(name)` to read values.
-- `response.url` contains the final request URL (after redirects).
+- The `result` object will have these properties: `userId`, `title`, `completed`.
+- The debugger console can be used to inspect `result` after the `response` has been parsed.
 
 ## Usage tips
 
-- Display clear labels (URL, Host, Accept-Encoding) so tests can find content.
+- Display clear labels (Example: User ID, Title, Is Completed).
 
 ## Example
 
 ```js
-const r = await fetch("https://postman-echo.com/get");
-const url = r.url;
-const host = r.headers.get("host");
+const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+const result = await response.json();
+const userId = result.userId;
 ```

@@ -47,4 +47,24 @@ describe("Level 02 — Feedback Message", () => {
   it("form.reset() is called on successful login", () => {
     expect(/form\.reset\(|reset\(\)/.test(scriptText)).toBeTruthy();
   });
+
+  it("updates error and success elements with API messages", () => {
+    // check for innerText/textContent assignments to error/success elements
+    expect(
+      /(querySelector\(['\"]#error['\"]\).*\.(innerText|textContent))|(getElementById\(['\"]error['\"]\).*\.(innerText|textContent))|(\.error\s*\.|errorElement.*\.(innerText|textContent))/i.test(
+        scriptText,
+      ),
+    ).toBeTruthy();
+    expect(
+      /(querySelector\(['\"]#success['\"]\).*\.(innerText|textContent))|(getElementById\(['\"]success['\"]\).*\.(innerText|textContent))|(\.success\s*\.|successElement.*\.(innerText|textContent))/i.test(
+        scriptText,
+      ),
+    ).toBeTruthy();
+    // check for using response message from API
+    expect(
+      /result\.error|result\.message|result\[0\]\.error|result\[0\]\.message/.test(
+        scriptText,
+      ),
+    ).toBeTruthy();
+  });
 });

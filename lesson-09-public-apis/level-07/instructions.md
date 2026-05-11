@@ -23,16 +23,16 @@ Understand API keys and create one at https://humorapi.com.
 
 ## More information
 
-- Explain why API keys are used and how they can track usage.
+- API keys identify and authenticate the application or user making requests so the service can allow or deny access, enforce quotas, and bill usage. Keys let providers associate requests with an account so they can monitor activity, rate-limit clients, and detect abuse.
+- Every request that includes the key is logged by the API provider. Providers record metrics such as request counts, endpoints called, timestamps, IP addresses, and error rates tied to the key. These logs power dashboards, quota enforcement, billing, and alerting. Compromised keys can be revoked or rotated to stop further requests.
 
 ## Usage tips
 
-- Emphasize that keys are secrets and should not be committed to repositories.
+- Keep keys secret and change or rotate keys periodically.
 
 ## Example
 
 ```js
 const msg = document.getElementById("message");
-msg.innerText =
-  "API keys identify your app to a service; do not commit them publicly.";
+msg.innerText = "API keys identify your app to a service.";
 ```

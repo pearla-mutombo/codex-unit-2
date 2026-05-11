@@ -2,7 +2,7 @@
 
 ## Objective
 
-Use an API key to fetch jokes from https://humorapi.com.
+Use an API key to fetch memes from https://api.humorapi.com/memes/random.
 
 ## Benefits
 
@@ -13,9 +13,8 @@ Use an API key to fetch jokes from https://humorapi.com.
 
 - Create a `data` object with an `api-key` property (quoted when hyphenated).
 - Convert `data` into a `queryString` using `URLSearchParams`.
-- Use `async/await` to fetch jokes from the API including the key as required.
-- Parse the response and render a joke into the DOM.
-- Handle errors and display messages when the key is invalid.
+- Use `async/await` to fetch memes from the API including the key as required.
+- Parse the response and render a meme into an `img` tag.
 
 ## Hints
 
@@ -24,16 +23,17 @@ Use an API key to fetch jokes from https://humorapi.com.
 
 ## More information
 
-- https://humorapi.com/
+- HumorAPI docs: https://humorapi.com/docs/#Random-Meme
 
 ## Usage tips
 
-- If testing without a real key, stub responses or use a mock endpoint.
+- In JavaScript objects, unquoted property names must no contain hyphens. A hyphen is interpreted as the subtraction operator, so `{"api-key": "..."}` must use quotes. If you used `api-key` without quotes, it would be parsed as `api - key`, which is invalid as an object property.
 
 ## Example
 
 ```js
-// Use URLSearchParams for key-in-query examples (API may accept headers instead)
-const qs = new URLSearchParams({ "api-key": "..." }).toString();
+// Use URLSearchParams to create a query string from an object.
+const data = { "api-key": "abc123" };
+const qs = new URLSearchParams(data);
 const res = await fetch(url + "?" + qs);
 ```

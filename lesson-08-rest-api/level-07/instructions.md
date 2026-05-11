@@ -14,7 +14,7 @@ This level practices adding fetch options to send a POST request and inspecting 
 - Ensure the form inputs have `name` attributes.
 - In `script.js`, implement a form handler attached to `form.onsubmit` and call `event.preventDefault()`.
 - Use `form.elements` to collect input values into a `data` object whose keys match input `name` attributes.
-- Use `async/await` to call `fetch('https://api.jsoning.com/mock/public/users', { method: 'POST', body: data })`.
+- Use `async/await` to call `fetch('https://jsonplaceholder.typicode.com/posts', { method: 'POST', body: data })`.
 - Insert a short explanation into the `#result` element describing how the data was attached to the request.
 
 ## Hints

@@ -26,13 +26,34 @@ describe("Level 04 — Parsing the response", () => {
       scriptText = readFileSync(scriptPath, "utf8");
   });
 
-  it("uses fetch and parses JSON via response.json", () => {
+  it("sends a fetch request to https://jsonplaceholder.typicode.com/todos/1", () => {
     expect(scriptText.length).toBeGreaterThan(0);
-    expect(/fetch\s*\(/i.test(scriptText)).toBeTruthy();
-    expect(/\.json\s*\(/i.test(scriptText)).toBeTruthy();
+    expect(
+      /fetch\([^)]*jsonplaceholder\.typicode\.com\/todos\/1/i.test(
+        scriptText,
+      ) || /fetch\([^)]*todos\/1/i.test(scriptText),
+    ).toBeTruthy();
   });
 
-  it("contains a form element", () => {
-    expect(doc!.querySelector("form")).toBeTruthy();
+  it("uses async/await during the fetch call", () => {
+    expect(
+      /await\s+fetch/i.test(scriptText) ||
+        /async\s+function/i.test(scriptText) ||
+        /=>\s*async/i.test(scriptText),
+    ).toBeTruthy();
+  });
+
+  it("parses the server response with response.json()", () => {
+    expect(
+      /response\s*\.json\s*\(/i.test(scriptText) ||
+        /\.json\s*\(/i.test(scriptText),
+    ).toBeTruthy();
+  });
+
+  it("inserts a short explanation about parsing into an element's innerText", () => {
+    const bodyText = doc?.body?.textContent ?? "";
+    const explainsParsing =
+      /parse|parsing|parse the response|parsing the response/i.test(bodyText);
+    expect(explainsParsing).toBeTruthy();
   });
 });

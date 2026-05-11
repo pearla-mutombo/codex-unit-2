@@ -11,10 +11,10 @@
 
 ## Complete these tasks
 
-- Use a public no-auth GET endpoint (e.g., https://jsonplaceholder.typicode.com/posts/1).
-- Send the request in Postman and inspect status, headers, and body.
-- Open the API docs and note one fact.
-- Console.log one fact learned from the documentation in `script.js`.
+- With Postman, send a GET request to `https://the-trivia-api.com/v2/questions`.
+- Inspect status, headers, and body.
+- Open the API docs `https://the-trivia-api.com/docs/#tag/Questions/operation/getRandomQuestions`.
+- Use `script.js` to `console.log` one fact learned from the documentation.
 
 ## Hints
 
@@ -23,15 +23,14 @@
 
 ## More information
 
-- GET requests retrieve data; responses include status, headers, and body. Servers commonly return JSON for API endpoints.
+- GET requests retrieve data; responses include status, headers, and body.
+- To sending a GET request in Postman, set the method to `GET` (default), paste the endpoint URL into the request bar, and click `Send` to view the response.
+- Inspect the `Status`, `Headers`, and use the `Pretty` view for JSON in the Response panel.
+- Servers commonly return JSON for API endpoints.
+- JSON (JavaScript Object Notation) is a lightweight, text-based format for structured data, using objects (key-value pairs) and arrays.
+- JSON data types: strings, numbers, objects, arrays, booleans, and null.
+- In JavaScript, convert a JSON string to an object with `JSON.parse()` and convert an object to JSON with `JSON.stringify()`.
 
 ## Usage tips
 
 - Use Postman's history to re-open requests you tried earlier.
-
-## Example
-
-```
-// In script.js (student task):
-// TODO: fetch and log a doc fact and/or parsed JSON
-```

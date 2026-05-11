@@ -11,9 +11,11 @@
 
 ## Complete these tasks
 
-- Pick an API from the instructor list and find a suitable GET endpoint.
-- Make the GET request and capture/inspect the response.
-- Console.log a documentation detail and the parsed JSON in `script.js`.
+- Pick an API from `https://free-apis.github.io` or search the internet.
+- Pick a suitable GET endpoint.
+- Read the API docs.
+- Use Postman to make the GET request with data and inspect the response.
+- Use `script.js` to `console.log` one fact learned from the documentation.
 
 ## Hints
 
@@ -21,14 +23,8 @@
 
 ## More information
 
-- Most APIs return JSON; use `response.json()` in browser code or Postman's viewer to inspect parsed objects.
+- Most APIs return JSON. Use Postman's viewer to inspect parsed objects.
 
 ## Usage tips
 
 - Test the endpoint in Postman first, then replicate the request in `script.js`.
-
-## Example
-
-```
-// TODO: fetch('/endpoint').then(r => r.json()).then(data => console.log(data))
-```

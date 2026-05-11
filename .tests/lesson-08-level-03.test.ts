@@ -29,11 +29,33 @@ describe("Level 03 — Intro to async / await", () => {
   it("contains a form element", () => {
     expect(doc!.querySelector("form")).toBeTruthy();
   });
-
-  it("script uses async/await and fetch", () => {
+  it("gets and saves the form element to form and attaches a submit handler", () => {
     expect(scriptText.length).toBeGreaterThan(0);
-    expect(/\basync\b/i.test(scriptText)).toBeTruthy();
-    expect(/\bawait\b/i.test(scriptText)).toBeTruthy();
-    expect(/fetch\s*\(/i.test(scriptText)).toBeTruthy();
+    const hasFormVar =
+      /(?:const|let|var)\s+form\s*=/.test(scriptText) ||
+      /form\s*=\s*document\./i.test(scriptText);
+    const attachesOnsubmit =
+      /form\.onsubmit\s*=/.test(scriptText) ||
+      /addEventListener\s*\(\s*["']submit["']/.test(scriptText);
+    expect(hasFormVar).toBeTruthy();
+    expect(attachesOnsubmit).toBeTruthy();
+  });
+
+  it("the submit handler calls event.preventDefault()", () => {
+    expect(/preventDefault\s*\(/i.test(scriptText)).toBeTruthy();
+  });
+
+  it("uses async/await when calling fetch inside the handler", () => {
+    expect(
+      /await\s+fetch/i.test(scriptText) ||
+        /async\s+function/i.test(scriptText) ||
+        /=>\s*async/i.test(scriptText),
+    ).toBeTruthy();
+  });
+
+  it("inserts a short explanation about async/await into an element's innerText", () => {
+    const bodyText = doc?.body?.textContent ?? "";
+    const explains = /async|await|asynchronous/i.test(bodyText);
+    expect(explains).toBeTruthy();
   });
 });

@@ -25,13 +25,22 @@ describe("Level 06 — Trivia Feedback", () => {
     ).toBeTruthy();
   });
 
-  it("builds a choices array containing correct and incorrect answers", () => {
-    expect(/incorrect|correct|choices/.test(scriptText)).toBeTruthy();
+  it("stores correct and incorrect answers in separate variables that start with 'choice'", () => {
+    const matches =
+      scriptText.match(/(?:const|let|var)\s+(choice\w*)\s*=/g) || [];
+    expect(matches.length).toBeGreaterThanOrEqual(2);
   });
 
-  it("wires click handlers for choices", () => {
+  it("fetches questions using fetch with async/await", () => {
+    expect(/fetch\(/.test(scriptText)).toBeTruthy();
     expect(
-      /addEventListener\(|onclick|click\s*=>/.test(scriptText),
+      /await\s+fetch|async\s+function|async\s*\(/.test(scriptText),
+    ).toBeTruthy();
+  });
+
+  it("renders question and choices into the DOM", () => {
+    expect(
+      /(innerText|innerHTML|textContent|appendChild)/.test(scriptText),
     ).toBeTruthy();
   });
 });

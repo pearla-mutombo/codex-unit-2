@@ -2,7 +2,7 @@
 
 ## Objective
 
-Explain `async`/`await` and apply them to a GET request to `https://api.jsoning.com/mock/public/users`.
+Explain `async`/`await` and apply them to a GET request to `https://jsonplaceholder.typicode.com/todos/1`.
 
 ## Benefits
 
@@ -38,6 +38,6 @@ Explain `async`/`await` and apply them to a GET request to `https://api.jsoning.
 ```js
 async function handleSubmit(e) {
   e.preventDefault();
-  const r = await fetch("https://api.jsoning.com/mock/public/users");
+  const r = await fetch("https://jsonplaceholder.typicode.com/todos/1");
 }
 ```
