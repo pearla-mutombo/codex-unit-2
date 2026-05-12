@@ -2,4 +2,4 @@
 // No solution provided — students should confirm Postman opens.
 
 // Optional: students may log a short confirmation here after installing.
-console.log("TODO: Confirm Postman installed and opened");
+console.log("postman is installed, open and ready for level 1.");
