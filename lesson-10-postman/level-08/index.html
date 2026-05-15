@@ -3,14 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
     <title>API Challenge — Form</title>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <main>
       <h1>API Challenge</h1>
       <form id="api-form">
         <label for="input">Value</label>
-        <input id="input" name="value" />
+        <input id="input" name="value" required />
         <button type="submit">Send</button>
       </form>
       <output id="result"></output>
