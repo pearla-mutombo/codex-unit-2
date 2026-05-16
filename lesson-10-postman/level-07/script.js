@@ -1,9 +1,9 @@
 // TODO: Starter for Level 07: API POST practice.
 
 // Students should construct a JSON payload and send it to their chosen API.
-const response = await fetch("https://zenquotes.io/", {
+const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
   method: "POST",
-  headers: { "Content-Type": "application/json" },
+  headers: { "Content-Type": "application/json; charset=UTF-8"},
   body: JSON.stringify({
     title: "Learning API POST Requests",
     body: "This request sends raw JSON data to a target endpoint.",
@@ -11,7 +11,6 @@ const response = await fetch("https://zenquotes.io/", {
   }),
 });
 const result = await response.json();
-
-console.log(
-  "Zenquotes.io is a simple API that can be used to fetch quotes from infuential figures throughout history into JSON format. While it's not hard to find a database of inspirational quotes online, most of them require registration or just plain suck.",
-);
+const resultData = result.id;
+console.log(resultData);
+console.log("We learned that we need to pay close attention to the POST components, for example here we had to add an extra headers that the API website required.");
