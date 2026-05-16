@@ -1,38 +1,41 @@
-# Level 01 — Document Object
+## Level 01 — Document Object
 
 ## Objective
 
-Use the browser console to inspect properties in the `document` object.
+Use the debugger console to inspect the `document` object and observe common properties such as `title`, `URL`, `contentType`, `scripts`, and `styleSheets`.
 
 ## Benefits
 
-- Quick visibility into page metadata and loaded assets.
+- **Inspectability**: Learn how to explore page state in the console.
+- **Debugging**: Find values quickly with `console.log` and the debugger.
 
 ## Complete these tasks
 
-- Preview `index.html`
-- Open the console in the browser Dev Tools.
-- Type these in the console and view their values: `document.title`, `document.URL`, `document.scripts`, and `document.styleSheets`.
-- Edit `script.js` to `console.log` the values of those properties.
+- Use `console.log` to display `document.title`.
+- Use `console.log` to display `document.URL`.
+- Use `console.log` to display `document.contentType`.
+- Use `console.log` to display `document.scripts`.
+- Use `console.log` to display `document.styleSheets`.
+- Use the debugger to inspect an element on the page.
 
 ## Hints
 
-- Start by typing `document.` then use autocomplete to explore properties.
+- Open DevTools (F12) and use the Console panel.
+- Add `debugger;` in `script.js` to pause execution where needed.
 
 ## More information
 
-- The DOM (Document Object Model) is a way to representa web page so each element can be inspected and modified.
-- The `document` object a collection of data and methods in web page.
-- `document.scripts` is a collection of script elements.
-- `document.styleSheets` lists stylesheets.
+- The DOM (Document Object Model) represents the page as a tree of nodes.
+- The global `document` object exposes metadata and collections like `scripts` and `styleSheets`.
 
 ## Usage tips
 
-- Type each line from scratch to build confidence with DOM autocompletion.
+- Set a breakpoint in the Sources panel or insert the `debugger` keyword.
+- Use `console.dir(document)` to view properties as an object.
 
 ## Example
 
 ```js
-// Simple console log example
+// Minimal inspection example
 console.log(document.title);
 ```

@@ -1,9 +1,7 @@
-// Level 02 — getElementById starter
-// TODO: select the element with document.getElementById('sample')
+// TODO: Use document.getElementById to select the element and log properties.
  const element = document.getElementById("sample")
 
-// TODO: log properties: id, classList, innerText, innerHTML, attributes
-
+// Tasks guide: create a variable `element` and log id, classList, innerText, innerHTML, attributes.
 //console log element properties
 console.log(element.id);
 console.log(element.classList);
@@ -13,6 +11,6 @@ console.log(element.attributes);
 
 
 
-// Example scaffold (fill in the TODOs):
-// const el = document.getElementById('sample');
-// console.log(el);
+// Example starter:
+// const element = document.getElementById('sample');
+// console.log(element.id);

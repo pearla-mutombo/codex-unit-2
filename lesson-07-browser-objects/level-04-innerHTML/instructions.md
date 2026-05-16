@@ -1,34 +1,37 @@
-# Level 04 — innerHTML
+## Level 04 — Inner HTML
 
 ## Objective
 
-Set an element's `innerHTML` to include simple markup (for example a `<strong>` element) and log before/after values; discuss differences with `innerText`.
+Select an element by id and set its `innerHTML` to include simple HTML.
 
 ## Benefits
 
-- Shows how HTML markup can be injected versus plain text.
+- **Flexible content**: `innerHTML` lets you insert markup when needed.
 
 ## Complete these tasks
 
-- Select the element (e.g. `content`) and log its `innerHTML`.
-- Set `innerHTML` to a small markup string and confirm it changed.
+- Select element with `getElementById('content')` into `element`.
+- Log previous `innerHTML`.
+- Set `element.innerHTML` to HTML that explains 'innerHTML' and 'innerText'.
+- Use the debugger to inspect the element.
 
 ## Hints
 
-- `innerHTML` accepts plain text and HTML strings.
-- Do not insert untrusted content.
+- Avoid inserting user-provided HTML directly without sanitizing.
 
 ## More information
 
-- `innerHTML` updates the DOM and can include tags such as `<strong>` or `<em>`.
+- `innerHTML` returns a string of HTML markup; changing it reparses the element's contents.
+- Difference: `innerText` shows visible text; `innerHTML` contains markup.
 
 ## Usage tips
 
-- Use simple markup to demonstrate differences from `innerText`.
+- For simple text, prefer `innerText` to avoid accidental markup.
 
 ## Example
 
-```
-const el = document.getElementById('content');
-console.log(el && el.innerHTML);
+```js
+const element = document.getElementById("content");
+console.log(element.innerHTML);
+element.innerHTML = "<strong>innerHTML</strong> vs innerText";
 ```

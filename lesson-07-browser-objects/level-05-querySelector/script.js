@@ -36,3 +36,4 @@ if (firstItem) {
 // list.forEach((el, i) => {
 //   // TODO: update each el.innerText
 // });
+// TODO: Use querySelector('#content') to select element and update innerHTML to explain querySelector vs getElementById

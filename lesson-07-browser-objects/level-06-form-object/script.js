@@ -25,11 +25,7 @@ if (form) {
     console.log("Form not found!");
 }
 // Scaffold:
+// TODO: Select the form and log form.id, form.name, form.elements.length, form.enctype, form.className
+// Example starter:
 // const form = document.getElementById('sample-form');
-// if (form) {
-//   console.log('id:', form.id);
-//   console.log('name:', form.name);
-//   console.log('elements length:', form.elements.length);
-//   console.log('enctype:', form.enctype);
-//   console.log('className:', form.className);
-// }
+// console.log(form.id, form.name);

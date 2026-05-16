@@ -19,5 +19,12 @@ function handleSubmit(event) {
   console.log("Volume (as numner)", volume, "Type:" typeof volume);
 }
 
+// TODO: Read textarea and range values from form.elements and convert range to Number when needed.
+// Example starter:
 // const form = document.getElementById('sample-form');
-// if (form) form.onsubmit = handleSubmit;
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   const message = form.elements.message.value;
+//   const volume = Number(form.elements.volume.value);
+//   console.log(message, volume);
+// }

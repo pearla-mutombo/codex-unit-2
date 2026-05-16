@@ -1,39 +1,36 @@
-# Level 09 — event.target
+## Level 09 — Event Target
 
 ## Objective
 
-Inside a submit handler, inspect `event.target` and `event.currentTarget`, and save references to the form and named inputs using `form.elements`.
+Inside a submit handler, use `event.target` to save a reference to the form without additional DOM queries.
 
 ## Benefits
 
-- Shows how to access the form that triggered the event without querying the DOM again.
+- **Efficiency**: Avoid extra DOM lookups by using the event-provided target.
 
 ## Complete these tasks
 
-- In your submit handler save `const form = event.target` and verify it references the form.
-- Call `event.preventDefault()` and log a property from `form`.
+- In `handleSubmit` call `event.preventDefault()`.
+- Save form reference with `const form = event.target`.
+- Log explanation of `event.target` and inspect in debugger.
 
 ## Hints
 
-- `event.target` is the element that dispatched the event; in a form submit it is the form.
+- `event.target` is the element that dispatched the event; for delegated handlers, it may differ from `currentTarget`.
 
 ## More information
 
-- `event.target` is the original element that dispatched the event.
-- In a submit handler attached directly to a form, `event.target` is typically the form.
-- If a child element (for example a button) triggers the event, `event.target` may be that child — use `event.currentTarget` or to reliably reference the right element.
+- Use `event.currentTarget` when you want the element the listener is attached to rather than the actual origin.
 
 ## Usage tips
 
-- Save `event.target` to a descriptive variable like `form`.
+- Prefer `event.target` inside directly-attached submit handlers on forms.
 
 ## Example
 
 ```js
-// hint-only
 function handleSubmit(event) {
-  const form = event.target;
   event.preventDefault();
-  console.log(form.id);
+  const form = event.target;
 }
 ```

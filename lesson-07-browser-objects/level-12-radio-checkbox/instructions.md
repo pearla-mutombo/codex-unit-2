@@ -1,40 +1,36 @@
-# Level 12 — radio & checkbox
+## Level 12 — Radio buttons and checkbox values
 
 ## Objective
 
-Read selected radio values and checkbox states via `form.elements` or `FormData` and log descriptive variables.
+Read the values from radio buttons and checkboxes from `form.elements`.
 
 ## Benefits
 
-- Shows how to read selection controls and boolean `checked` states.
+- **Form controls**: Understand how selection and checked state map to values used in code.
 
 ## Complete these tasks
 
-- Ensure the submit handler calls `preventDefault()`.
-- Read `form.elements.color.value` for the selected radio and `form.elements.subscribe.checked` for the checkbox.
-- Log both values.
+- Call `preventDefault` at handler start.
+- Save form via `event.target`.
+- Save `form.elements.color.value` into `color`.
+- Save `form.elements.subscribe.checked` into `isSubscribed`.
+- Console.log the extracted values.
 
 ## Hints
 
-- Radios with the same `name` expose the selected value via `.value`.
-- `checked` is a boolean; `value` on radios/inputs is a string.
+- Radio groups require the same `name` and individual `value` attributes.
 
 ## More information
 
-- Radio buttons that share a `name` form a group; when accessed via `form.elements.name` you typically get a `RadioNodeList` whose `.value` reflects the currently selected radio's `value` (or an empty string if none are selected).
-- Checkboxes expose a boolean `checked` property. For a single checkbox use `form.elements.checkboxName.checked` to read its state.
-- Access patterns:
-  - Single radio group: `const color = form.elements.color.value` (selected value as string)
-  - Single checkbox: `const subscribed = form.elements.subscribe.checked` (boolean)
-- Remember types: `.value` is a string, `.checked` is boolean — coerce as needed before using in logic.
+- Radios use `value` to indicate the selected option; checkboxes use `checked` (a boolean).
 
 ## Usage tips
 
-- Use descriptive variable names like `const subscribed = form.elements.subscribe.checked`.
+- Remember `checked` is boolean; `value` is a string.
 
 ## Example
 
 ```js
-// small hint
-console.log(form.elements.color.value, form.elements.subscribe.checked);
+const color = form.elements.color.value;
+const isSubscribed = form.elements.subscribe.checked;
 ```

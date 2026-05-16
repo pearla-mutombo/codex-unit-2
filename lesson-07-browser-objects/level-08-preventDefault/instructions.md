@@ -1,35 +1,36 @@
-# Level 08 — preventDefault
+## Level 08 — Prevent Default
 
 ## Objective
 
-Update the submit handler to call `event.preventDefault()` before logging and explain why it is necessary.
+Call `preventDefault` in a submit handler so the browser doesn't reload the page.
 
 ## Benefits
 
-- Prevents navigation so client-side logic can run safely.
+- **Single-page flow**: Prevent form navigation to handle data client-side.
 
 ## Complete these tasks
 
-- Ensure the submit handler calls `event.preventDefault()` as its first action.
-- Log a short explanation of why `preventDefault()` is used.
+- Select the form `sample-form`.
+- Create `handleSubmit(event)` and assign to `form.onsubmit`.
+- Call `event.preventDefault()` at handler start.
+- Log explanation of `preventDefault`.
 
 ## Hints
 
-- `event.preventDefault()` stops the browser's default submission/navigation.
+- `preventDefault` stops the browser's default submit behavior, like navigation.
 
 ## More information
 
-- Use `preventDefault` when you want to handle form data in JavaScript without reload.
+- By preventing default, you can validate or process the form client-side before sending.
 
 ## Usage tips
 
-- Call `preventDefault()` before reading form values.
+- Always call `preventDefault()` early in the handler if you intend to stop navigation.
 
 ## Example
 
-```
+```js
 function handleSubmit(event) {
   event.preventDefault();
-  console.log('preventDefault stops navigation');
 }
 ```
