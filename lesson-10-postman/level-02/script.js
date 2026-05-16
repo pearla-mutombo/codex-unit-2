@@ -2,4 +2,4 @@
 // Example: Console.log one fact learned from the API docs.
 
 // TODO: Replace this placeholder with a short note from the docs.
-console.log("It's a trivia api site with question, catergories and 200 responses in different languages.");
+console.log("if catergories are not specified then all catergories will be used as a default. if difficulties levels are not specificied than all difficulties levels will be used as a default.");
