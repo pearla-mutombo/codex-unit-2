@@ -3,18 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Level 13 — form-reset</title>
+    <title>Level 13 — Form Reset</title>
     <script src="script.js" defer></script>
   </head>
   <body>
     <form id="sample-form">
-      <input name="username" required minlength="3" />
+      <input name="firstName" placeholder="First name" />
+      <input name="lastName" placeholder="Last name" />
       <button type="submit">Submit</button>
     </form>
-    <div id="result">Result will appear here after validation.</div>
-    <p>
-      Validate the `username` field in your handler; on success display a
-      message here and call `form.reset()`.
-    </p>
   </body>
 </html>

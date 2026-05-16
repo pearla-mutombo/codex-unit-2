@@ -1,32 +1,37 @@
-# Level 03 — innerText
+## Level 03 — Inner Text
 
 ## Objective
 
-Read an element's `innerText`, set a new descriptive `innerText`, and log both before and after values.
+Select an element by id and change its `innerText` to a new descriptive string.
 
 ## Benefits
 
-- Practice safe text-only updates without injecting HTML.
+- **Content updates**: Learn how to change visible text dynamically.
+- **Safety**: `innerText` preserves plain text and avoids inserting HTML.
 
 ## Complete these tasks
 
-- Select `#desc` and `console.log` its current `innerText`.
-- Set a new `innerText` and log the updated value.
+- Select element with `getElementById('desc')` into `element`.
+- Log previous `innerText`.
+- Set `element.innerText` to a new descriptive string that mentions 'innerText'.
+- Use the debugger to inspect changes.
 
 ## Hints
 
-- `innerText` returns human-readable text; use it for plain text changes.
+- `innerText` reflects the rendered text and will strip HTML tags.
 
 ## More information
 
-- Changing `innerText` updates visible text and strips any markup.
+- `innerText` provides the text content as displayed; it may differ from `textContent` in layout-sensitive cases.
 
 ## Usage tips
 
-- Compare `innerText` and `innerHTML` when experimenting.
+- Test changes in the console: `document.getElementById('desc').innerText`.
 
 ## Example
 
 ```js
-const el = document.getElementById("desc");
+const element = document.getElementById("desc");
+console.log(element.innerText);
+element.innerText = "This demonstrates innerText.";
 ```

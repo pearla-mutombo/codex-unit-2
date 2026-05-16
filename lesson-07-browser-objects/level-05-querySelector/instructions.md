@@ -1,32 +1,34 @@
-# Level 05 — querySelector
+## Level 05 — Query Selector
 
 ## Objective
 
-Use `document.querySelector` to select an element and update its text.
+Use `querySelector` with a CSS selector (for example `#content`) to select a single element.
 
 ## Benefits
 
-- Flexible CSS-style selection and batch updates.
+- **Flexible selectors**: Use any CSS selector to find elements.
 
 ## Complete these tasks
 
-- Use `querySelector` to pick one element and change its text.
+- Select the element with `querySelector('#content')` into `element`.
+- Log previous `innerHTML`.
+- Set `element.innerHTML` to explain `querySelector` vs `getElementById`.
+- Use the debugger to inspect the element.
 
 ## Hints
 
-- `querySelector` accepts a string that looks like a CSS selector.
+- `querySelector` returns the first matching element; use `querySelectorAll` for many.
 
 ## More information
 
-- `querySelector` accepts any valid CSS selector
-- It returns the first match.
+- `querySelector` accepts CSS selectors like `#id`, `.class`, or `tag[attr=value]`.
 
 ## Usage tips
 
-- Test selectors in the console before writing code.
+- Prefer `getElementById` when you have an ID and need maximum speed and clarity.
 
 ## Example
 
 ```js
-document.querySelector("div");
+const element = document.querySelector("#content");
 ```

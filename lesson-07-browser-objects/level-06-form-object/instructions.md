@@ -1,31 +1,35 @@
-# Level 06 — Form Object
+## Level 06 — Form Object
 
 ## Objective
 
-Select a form element and log properties: `id`, `name`, `elements.length`, `method`, `action`, `enctype`.
+Select a `form` element with `getElementById` or `querySelector` and inspect its properties.
 
 ## Benefits
 
-- Understand form metadata useful for submission and client-side handling.
+- **Form metadata**: Learn common form properties useful for handling submissions.
 
 ## Complete these tasks
 
-- Select `#sample-form` and `console.log` the listed properties.
+- Select form with id `sample-form` via `getElementById` or `querySelector`.
+- Save the form as `form`.
+- Save `form.id`, `form.name`, `form.elements.length`, `form.enctype`, `form.className`.
+- Log each saved variable and inspect `form` in the debugger.
 
 ## Hints
 
-- `form.elements` is a collection indexed by `name` and number.
+- `form.elements` exposes named controls accessible by name.
 
 ## More information
 
-- When you select a form (eg., with `document.getElementById(...)`) you receive an `Element` that has access to the values collected by the form.
+- Forms have properties like `enctype` (encoding type) and a elements collection for inputs.
 
 ## Usage tips
 
-- Use descriptive variable names like `const form = document.getElementById('sample-form')`.
+- Use `console.log(form.elements)` to inspect controls.
 
 ## Example
 
 ```js
 const form = document.getElementById("sample-form");
+console.log(form.elements.length);
 ```

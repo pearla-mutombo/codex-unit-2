@@ -1,37 +1,37 @@
-# Level 13 — form-reset
+## Level 13 — Form reset
 
 ## Objective
 
-Validate one field in the submit handler; on success display a DOM summary and call `form.reset()` to clear inputs.
+Implement submit handling that validates one or two fields and uses `form.reset()` to clear the form after a successful submission.
 
 ## Benefits
 
-- Shows how to programmatically clear a form after successful handling.
+- **UX**: Reset forms after successful submissions to provide a clean state.
 
 ## Complete these tasks
 
-- Call `event.preventDefault()` in the handler.
-- Validate one field (e.g. non-empty name); if valid, display a summary and call `form.reset()`.
+- Call `preventDefault` at handler start.
+- Save form via `event.target`.
+- Read `firstName` and `lastName` from `form.elements`.
+- Write `if` / `else if` statements to check values and call `form.reset()` when appropriate.
+- Use the debugger to observe `form.reset()` behavior.
 
 ## Hints
 
-- `form.reset()` returns controls to their initial values.
+- Example check: `if (firstName === "Bob") { form.reset(); }`.
 
 ## More information
 
-- `form.reset()` restores all form controls to their initial values as defined in the HTML (for example `value`, `checked`, and `selected` attributes). It sets the current value back to the element's default, it does not remove attributes.
-- Calling `form.reset()` dispatches the form's native `reset` event. It does not submit the form and it does not invoke submit handlers.
-- To clear or change individual controls, set `.value`/`.checked` directly; there is no built-in API to reset only one control with `form.reset()`.
-- After resetting, the form's controls reflect their original default state (useful for returning the UI to its initial view after a successful submission).
+- `form.reset()` restores form controls to their initial values.
 
 ## Usage tips
 
-- Update a summary element with `innerText` to confirm success to the user.
+- Use `===` for strict string comparisons.
 
 ## Example
 
 ```js
-if (shouldReset) {
+if (firstName === "Bob") {
   form.reset();
 }
 ```

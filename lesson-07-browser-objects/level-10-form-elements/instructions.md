@@ -1,41 +1,34 @@
-# Level 10 — form elements
+## Level 10 — Form elements
 
 ## Objective
 
-Use `const form = event.target` and read values via `form.elements` (for example `form.elements.message.value`), saving into descriptive variables and logging them.
+Access a form value using `form.elements` and display it in the DOM.
 
 ## Benefits
 
-- Teaches reading control values by `name` from inside a handler.
+- **Readability**: Use named form controls for easy access.
 
 ## Complete these tasks
 
-- Assign a named function to `form.onsubmit` and ensure it accepts `event`.
-- Call `event.preventDefault()` and read a text input value using `form.elements`.
-- Display the value in the DOM using `innerText`.
+- Call `preventDefault` in handler.
+- Save form via `event.target`.
+- Read text input value from `form.elements.message.value` into `message`.
+- Select output tag and set its `innerText` to the message.
 
 ## Hints
 
-- Ensure inputs have `name` attributes so `form.elements` exposes them.
+- `form.elements` lets you access controls by their `name` attribute.
 
 ## More information
 
-- `form.elements` uses control `name` attributes as keys (e.g. `form.elements.message`).
-- `form.elements` is an array-like, live collection of a form's controls. It updates automatically when controls are added or removed.
-- You can access controls by `name` (for example `form.elements.message`).
-- For groups of controls with the same `name` (for example radio buttons), the collection returns a `RadioNodeList` — read its `.value` to get the currently selected value.
+- Accessing `form.elements.name` returns the control; use `.value` to get its current value.
 
 ## Usage tips
 
-- Use `const message = form.elements.message.value` and then update an output element.
+- `form.elements.message` is a reference to the input element, while `.value` is the string content.
 
 ## Example
 
 ```js
-function handleSubmit(event) {
-  event.preventDefault();
-  const form = event.target;
-  const userName = form.elements.userName.value;
-  console.log(userName);
-}
+const message = form.elements.message.value;
 ```

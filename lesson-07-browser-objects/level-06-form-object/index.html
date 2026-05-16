@@ -8,20 +8,9 @@
   </head>
   <body>
     <form id="sample-form" name="sampleForm">
-      <label>Message<input name="message" type="text" /></label>
-      <label>Volume<input name="volume" type="range" min="0" max="10" /></label>
-      <label><input type="radio" name="color" value="red" /> Red</label>
-      <label><input type="radio" name="color" value="blue" /> Blue</label>
-      <label><input type="checkbox" name="agree" /> Agree</label>
-      <label>Attachment<input name="attachment" type="file" /></label>
+      <input name="first" placeholder="First" />
+      <input name="last" placeholder="Last" />
       <button type="submit">Submit</button>
     </form>
-    <div id="summary">
-      No submissions yet — form metadata will be logged to the console.
-    </div>
-    <p>
-      Inspect the form with `script.js` to view properties like
-      `elements.length`, `enctype`, and `className`.
-    </p>
   </body>
 </html>
