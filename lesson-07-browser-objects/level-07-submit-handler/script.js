@@ -4,3 +4,18 @@
 // const form = document.getElementById('sample-form');
 // function handleSubmit(event) { console.log('onsubmit handler'); }
 // form.onsubmit = handleSubmit;
+ 
+// 1. Select the form element using its ID
+const form = document.getElementById('sample-form');
+
+// 2. Create the handleSubmit function that accepts the event object
+function handleSubmit(event) {
+  // Prevent the default browser reload on form submission
+  event.preventDefault();
+
+  // 3. Log an explanation of onsubmit to the console as requested
+  console.log("onsubmit");
+}
+
+// 4. Assign the function reference to form.onsubmit (do not call it with parenthesis)
+form.onsubmit = handleSubmit;
