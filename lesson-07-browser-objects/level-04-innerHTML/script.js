@@ -7,8 +7,18 @@ const divTag = document.getElementById("content");
 // TODO: log previous innerHTML, set a small markup string (e.g. <strong>), then log after value
 //console log the innerHTML properties
 console.log(divTag.innerHTML);
-divTag.innerHTML = "<h1> Welcome to the matrix!</h1>";
+divTag.innerHTML = "<strong>innerHTML</strong> vs innerText";
 console.log(divTag.innerHTML);
+
+debugger;
+
+
+
+
+
+
+
+
 
 // Scaffold:
 // const el = document.getElementById('content');
