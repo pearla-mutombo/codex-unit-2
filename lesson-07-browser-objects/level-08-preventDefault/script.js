@@ -2,8 +2,7 @@
 // TODO: update your submit handler to call event.preventDefault() before other logic
 const form = document.querySelector("form");
 
-if (form) {
-  form.onsubmit = handleSubmit;}
+form.onsubmit = handleSubmit;
 
 function handleSubmit(event) {
   // TODO: uncomment the next line when you want to prevent navigation
