@@ -1,25 +1,22 @@
 // Level 06 starter script
 // TODO: Use form.elements (by index) to collect input values into a plain object.
-const form = document.getElementById("sample-form");
+const formTag = document.getElementById("sample-form");
+const preTag = document.getElementById("data");
+formTag.onsubmit = handleSubmit;
 
-form.onsubmit = handleSubmit;
-
-async function handleSubmit(e) {
-  e.preventDefault();
+async function handleSubmit(event) {
+  event.preventDefault();
   const form = event.target;
-  const data = {};
-  for (let i = 0; i < form.elements.length; i++)
-    const username = form.lements[i];
-    if (username) {
-      data[username] = username.value;
-    }
-  const out = document.getElementById("data");
-  if (out) {
-    out.innerText = JSON.stringify(data, null, 2);
-  }
+  const data = {
+    username: form.elements[0].value,
+    email: form.elements[1].value,
+  };
   
-  console.log("Form data collected into object:", data);
+  const dataString = JSON.stringify(data);
+  console.log (dataString);
 
+  preTag.innerText = "Form data collected into object " + dataString;
+  
   
   // Build a 'data object from  form.elements using indexes.
   // The elements property returns an array-like set of form controls.
