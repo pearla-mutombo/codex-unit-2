@@ -1,27 +1,54 @@
-import { describe, it, expect, beforeEach } from "vitest";
-import { loadDocument } from "./_test-utils";
+import { describe, test, expect, beforeEach } from "vitest";
+import fs from "fs";
+import path from "path";
+import {
+  loadDocument,
+  indexHtmlPathForLevel,
+  expectNonEmptyString,
+} from "./_test-utils";
 
-describe("Level 12 — radio & checkbox", () => {
-  let doc: Document | null = null;
+describe("Level 12 — Radio and Checkbox", () => {
+  let doc: Document;
+  const levelDir = path.dirname(
+    indexHtmlPathForLevel(12, "lesson-07-browser-objects"),
+  );
+  const scriptPath = path.join(levelDir, "script.js");
+  const src = fs.existsSync(scriptPath)
+    ? fs.readFileSync(scriptPath, "utf8")
+    : "";
 
   beforeEach(() => {
     doc = loadDocument(12, "lesson-07-browser-objects");
   });
 
-  it("contains radio and checkbox inputs with name attributes and scripts reading their values", () => {
-    const radios = Array.from(
-      doc?.querySelectorAll("input[type=radio][name]") ?? [],
-    );
-    const checks = Array.from(
-      doc?.querySelectorAll("input[type=checkbox][name]") ?? [],
-    );
-    expect(radios.length + checks.length).toBeGreaterThan(0);
-    const scripts = Array.from(doc?.querySelectorAll("script") ?? []).map(
-      (s) => s.textContent ?? "",
-    );
-    const reads = scripts.some((t) =>
-      /(\.checked|form\.elements\.|FormData\()/i.test(t),
-    );
-    expect(reads).toBe(true);
+  test("The handler prevents the default form behavior.", () => {
+    expectNonEmptyString(src);
+    expect(/preventDefault\s*\(/.test(src)).toBeTruthy();
+  });
+
+  test("The color from the form is saved into the `color` variable.", () => {
+    expectNonEmptyString(src);
+    expect(
+      /form\.elements\.color\.value/.test(src) ||
+        /\.elements\[\"color\"\]/.test(src),
+    ).toBeTruthy();
+    expect(/\bcolor\b/.test(src)).toBeTruthy();
+  });
+
+  test("The checkbox status is saved into the `isSubscribed` variable.", () => {
+    expectNonEmptyString(src);
+    expect(
+      /form\.elements\.subscribe\.checked/.test(src) ||
+        /\.elements\[\"subscribe\"\]/.test(src),
+    ).toBeTruthy();
+    expect(/\bisSubscribed\b/.test(src)).toBeTruthy();
+  });
+
+  test("Log the color and checkbox status.", () => {
+    expectNonEmptyString(src);
+    expect(
+      /console\.log\s*\(.*color.*\)/.test(src) &&
+        /console\.log\s*\(.*isSubscribed.*\)/.test(src),
+    ).toBeTruthy();
   });
 });

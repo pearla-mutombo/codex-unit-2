@@ -1,37 +1,49 @@
-import { describe, it, expect, beforeEach } from "vitest";
-import { loadDocument } from "./_test-utils";
+import { describe, test, expect, beforeEach } from "vitest";
+import fs from "fs";
+import path from "path";
+import {
+  loadDocument,
+  indexHtmlPathForLevel,
+  expectNonEmptyString,
+} from "./_test-utils";
 
-describe("Level 14 — mini-project (form handler)", () => {
-  let doc: Document | null = null;
+describe("Level 14 — Mini project: Build a small form handler", () => {
+  let doc: Document;
+  const htmlPath = indexHtmlPathForLevel(14, "lesson-07-browser-objects");
+  const levelDir = path.dirname(htmlPath);
+  const scriptPath = path.join(levelDir, "script.js");
+  const src = fs.existsSync(scriptPath)
+    ? fs.readFileSync(scriptPath, "utf8")
+    : "";
+  const html = fs.existsSync(htmlPath) ? fs.readFileSync(htmlPath, "utf8") : "";
 
   beforeEach(() => {
     doc = loadDocument(14, "lesson-07-browser-objects");
   });
 
-  it("contains a form with inputs (name, message, range, radio, checkbox) and names", () => {
-    const form = doc?.querySelector("form");
-    expect(form).toBeTruthy();
-    const required = [
-      "input[name]",
-      "textarea[name]",
-      "input[type=range][name]",
-      "input[type=radio][name]",
-      "input[type=checkbox][name]",
-    ];
-    const exists = required.some((sel) => !!doc?.querySelector(sel));
-    expect(exists).toBe(true);
+  test("Form inputs each have a `name` attribute in HTML", () => {
+    expect(/<input[^>]+name="[^"]+"/i.test(html)).toBeTruthy();
   });
 
-  it("includes code that prevents default, reads form.elements, displays summary, and calls reset", () => {
-    const scripts = Array.from(doc?.querySelectorAll("script") ?? []).map(
-      (s) => s.textContent ?? "",
-    );
-    const hasPrevent = scripts.some((t) => /preventDefault\s*\(/.test(t));
-    const reads = scripts.some((t) => /form\.elements|FormData\(/.test(t));
-    const displays = scripts.some((t) =>
-      /innerText|innerHTML|textContent/.test(t),
-    );
-    const resets = scripts.some((t) => /\.reset\s*\(/.test(t));
-    expect(hasPrevent && reads && displays && resets).toBe(true);
+  test("The handler prevents the default form behavior.", () => {
+    expectNonEmptyString(src);
+    expect(/preventDefault\s*\(/.test(src)).toBeTruthy();
+  });
+
+  test("The event target is saved into a `form` variable.", () => {
+    expectNonEmptyString(src);
+    expect(/const\s+form\s*=\s*event\.target/.test(src) || /form\s*=\s*event\.target/.test(src)).toBeTruthy();
+  });
+
+  test("Read values from form.elements and save them into variables", () => {
+    expectNonEmptyString(src);
+    expect(
+      /form\.elements\.[a-zA-Z0-9_]+\.value/.test(src) || /form\.elements\[/.test(src),
+    ).toBeTruthy();
+  });
+
+  test("An if condition determines when to reset the form", () => {
+    expectNonEmptyString(src);
+    expect(/if\s*\(.*\)/.test(src) && /form\.reset\s*\(/.test(src)).toBeTruthy();
   });
 });
