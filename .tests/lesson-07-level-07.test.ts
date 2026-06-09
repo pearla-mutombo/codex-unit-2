@@ -1,32 +1,55 @@
-import { describe, it, expect, beforeEach } from "vitest";
-import { loadDocument } from "./_test-utils";
+import { describe, test, expect, beforeEach } from "vitest";
+import fs from "fs";
+import path from "path";
+import {
+  loadDocument,
+  indexHtmlPathForLevel,
+  expectNonEmptyString,
+} from "./_test-utils";
 
-describe("Level 07 — onsubmit function", () => {
-  let doc: Document | null = null;
+describe("Level 07 — Submit Handler", () => {
+  let doc: Document;
+  const levelDir = path.dirname(
+    indexHtmlPathForLevel(7, "lesson-07-browser-objects"),
+  );
+  const scriptPath = path.join(levelDir, "script.js");
+  const src = fs.existsSync(scriptPath)
+    ? fs.readFileSync(scriptPath, "utf8")
+    : "";
 
   beforeEach(() => {
     doc = loadDocument(7, "lesson-07-browser-objects");
   });
 
-  it("has a form with an onsubmit attribute or script that assigns onsubmit", () => {
-    const form = doc?.querySelector("form");
-    const hasAttr = !!form?.getAttribute("onsubmit");
-    const scripts = Array.from(doc?.querySelectorAll("script") ?? []).map(
-      (s) => s.textContent ?? "",
-    );
-    const assigns = scripts.some((t) => /onsubmit\s*=|\.onsubmit\s*=/.test(t));
-    expect(hasAttr || assigns).toBe(true);
+  test("A function that handles submissions is attached to the form.", () => {
+    // Expect the student's code to attach a submission handler (form.onsubmit or addEventListener('submit'))
+    expectNonEmptyString(src);
+    const assignsOnsubmit =
+      /form\.onsubmit\s*=\s*handleSubmit/.test(src) ||
+      /onsubmit\s*=\s*handleSubmit/.test(src) ||
+      /addEventListener\s*\(\s*['\"]submit['\"]/.test(src);
+    expect(assignsOnsubmit).toBeTruthy();
   });
 
-  it("includes a console.log mentioning onsubmit in scripts or inline attribute", () => {
-    const scripts = Array.from(doc?.querySelectorAll("script") ?? []).map(
-      (s) => s.textContent ?? "",
-    );
-    const found = scripts.some(
-      (t) => /onsubmit/i.test(t) && /console\.log\(/i.test(t),
-    );
-    const form = doc?.querySelector("form");
-    const attr = form?.getAttribute("onsubmit") ?? "";
-    expect(found || /onsubmit/i.test(attr)).toBe(true);
+  test("handleSubmit accepts an event parameter", () => {
+    // Expect a handleSubmit signature that accepts an event parameter
+    expectNonEmptyString(src);
+    const hasParam =
+      /function\s+handleSubmit\s*\(\s*event\s*\)/.test(src) ||
+      /const\s+handleSubmit\s*=\s*\(\s*event\s*\)\s*=>/.test(src) ||
+      /let\s+handleSubmit\s*=\s*\(\s*event\s*\)\s*=>/.test(src) ||
+      /handleSubmit\s*:\s*function\s*\(\s*event\s*\)/.test(src);
+    expect(hasParam).toBeTruthy();
+  });
+
+  test("Log a message that explains `onsubmit`.", () => {
+    // Expect the handler to log an explanatory message mentioning 'onsubmit'
+    expectNonEmptyString(src);
+    const logsOnsubmit =
+      /console\.log\s*\(\s*['\"].*onsubmit.*['\"]\s*\)/.test(src) ||
+      /console\.log\(.*onsubmit.*\)/.test(src) ||
+      /console\.info\(.*onsubmit.*\)/.test(src) ||
+      /console\.error\(.*onsubmit.*\)/.test(src);
+    expect(logsOnsubmit).toBeTruthy();
   });
 });

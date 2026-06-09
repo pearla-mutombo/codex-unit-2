@@ -1,34 +1,54 @@
-import { describe, it, expect, beforeEach } from "vitest";
-import { loadDocument } from "./_test-utils";
+import { describe, test, expect, beforeEach } from "vitest";
+import fs from "fs";
+import path from "path";
+import {
+  loadDocument,
+  indexHtmlPathForLevel,
+  expectNonEmptyString,
+} from "./_test-utils";
 
-describe("Level 06 — form object", () => {
-  let doc: Document | null = null;
+describe("Level 06 — Form Object", () => {
+  let doc: Document;
+  let form: HTMLFormElement | null;
+  const levelDir = path.dirname(
+    indexHtmlPathForLevel(6, "lesson-07-browser-objects"),
+  );
+  const scriptPath = path.join(levelDir, "script.js");
+  const src = fs.existsSync(scriptPath)
+    ? fs.readFileSync(scriptPath, "utf8")
+    : "";
 
   beforeEach(() => {
     doc = loadDocument(6, "lesson-07-browser-objects");
+    form = doc.querySelector("#sample-form");
   });
 
-  it("finds a form element (by id or first form)", () => {
-    const form =
-      doc?.getElementById("sample-form") ?? doc?.querySelector("form");
+  test("Form 'sample-form' is selected", () => {
     expect(form).toBeTruthy();
   });
 
-  it("reads common form attributes if present", () => {
-    const form = (doc?.getElementById("sample-form") ??
-      doc?.querySelector("form")) as HTMLFormElement | null;
-    expect(form).toBeTruthy();
-    if (form) {
-      const id = form.id ?? "";
-      const name = form.name ?? "";
-      const len = form.elements.length;
-      const enctype = form.enctype ?? "";
-      const cls = form.className ?? "";
-      expect(typeof id).toBe("string");
-      expect(typeof name).toBe("string");
-      expect(typeof len).toBe("number");
-      expect(typeof enctype).toBe("string");
-      expect(typeof cls).toBe("string");
-    }
+  test("The variable `id` stores form.id", () => {
+    expectNonEmptyString(src);
+    expect(/form\.id/.test(src)).toBeTruthy();
+  });
+
+  test("The variable `name` stores form.name", () => {
+    expectNonEmptyString(src);
+    expect(/form\.name/.test(src)).toBeTruthy();
+  });
+
+  test("Variable `length` stores form.elements.length", () => {
+    expectNonEmptyString(src);
+    expect(/elements\.length/.test(src)).toBeTruthy();
+  });
+
+  test("Variable `enctype` stores form.enctype", () => {
+    expectNonEmptyString(src);
+    expect(/form\.enctype/.test(src)).toBeTruthy();
+  });
+
+  test("Variable `className` stores form.className", () => {
+    expectNonEmptyString(src);
+    expect(/form\.className/.test(src)).toBeTruthy();
   });
 });
