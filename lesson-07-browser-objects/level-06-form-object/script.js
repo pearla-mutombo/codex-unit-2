@@ -5,25 +5,18 @@
 const form = document.getElementById ("sample-form");
 
 // TODO: log form.id, form.name, form.elements.length, form.enctype, form.className
-if (form) {
-    console.log("sample-form", form.id);
-    console.log("sampleForm", form.name);
-    console.log("0", form.min.length);
-    console.log("10", form.max.length);
-    console.log("radio", form.enctype);
-    console.log("radio", form.enctype);
-    console.log("checkbox", form.enctype);
-    console.log("text", form.enctype);
-    console.log("submit", form.enctype);
-    console.log("message", form.className);
-    console.log("volume", form.className);
-    console.log("color", form.className);
-    console.log("color", form.className);
-    console.log("agree", form.className);
-    console.log("attachment", form.className);
-} else {
-    console.log("Form not found!");
-}
+    // log form.id
+    console.log(form.id);
+    //log form.name
+    console.log(form.name);
+    //log form.elements.length
+    console.log(form.elements.length);
+    //log form.enctype
+    console.log(form.enctype);
+    //log form.className
+    console.log(form.className);
+  
+
 // Scaffold:
 // TODO: Select the form and log form.id, form.name, form.elements.length, form.enctype, form.className
 // Example starter:

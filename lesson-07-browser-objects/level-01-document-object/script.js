@@ -14,3 +14,5 @@ console.log(document.URL);
 console.log(document.scripts);
 /* console log document's stylesheets */
 console.log(document.styleSheets);
+/* console log document's contentType */
+console.log(document.contentType);

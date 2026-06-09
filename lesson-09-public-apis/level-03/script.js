@@ -6,6 +6,7 @@ formTag.onsubmit = handleSubmit;
 
 async function handleSubmit(event) {
   event.preventDefault();
+
   errorEl.innerText = "";
   successEl.innerText = "";
 
@@ -15,40 +16,31 @@ async function handleSubmit(event) {
       password: formData.elements.password.value,
     };
 
+    const dataString = JSON.stringify(data);
     try {
       const response = await fetch("https://dummyjson.com/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json"},
-      body: JSON.stringify(data)
+      body: dataString
     });
 
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || "Login failed and Invalid Credentials");
-    }
-
     const result = await response.json();
-    // const message = result.messge;
-    // const firstName = result.firstName;
-    // const errorEl = document.getElementById("error");
-    // const successEl = document.getElementById("success");
-    // if(message) {
-    //   errorEl.innerText = message;
-    //   successEl.innerText = "";
-    // } else if (firstName) {
-      successEl.innerText = "Login successful! Welcome, " + result.firstName; //Succss Login logic
-      // errorEl.innerText = "";
-      formData.reset();
-   
-    } catch (error) {
-    // catch the error or handle error or run this code when this is an error
-    // console.
-    // debugger;
-    // handle Error and console.error (error);
-    console.error(error);
-    errorEl.innerText = error.message;
+
+    if (response.ok) {
+      // Task: On login success, display a friendly message in the success element (innerText).
+      successEl.innerText = "Welcome back! Successful Login.";
+      
+      // Task: On successful login, call form.reset().
+      form.reset();
+    } else {
+      // Task: On login failure, display the API error message in the error element (innerText).
+      errorEl.innerText = result.message || "Login request failed";
     }
+
+  } catch (error) {
+    console.error(error);
+    errorEl.innerText = "Network error. Login request failed.";
+  }
 
   } 
   // TODO: Wrap fetch code in try/catch

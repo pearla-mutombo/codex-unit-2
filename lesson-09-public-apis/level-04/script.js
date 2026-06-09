@@ -1,19 +1,26 @@
 const formTag = document.getElementById("search-form");
-form.onsubmit = handleSubmit;
+
+formTag.onsubmit = handleSubmit;
 
 function handleSubmit(event) {
   event.preventDefault();
-  const form = event.target;
+
+  const formTag = event.target;
+
   const data = {
-    category: form.elements.category.value,
-    difficulty: form.elements.difficulty.value,
+    category: formTag.elements.categories.value,
+    difficulty: formTag.elements.difficulties.value,
   };
-  const queryString = new URLSearchParams(data);
-  console.log("This is the query string", queryString);
+
+  const searchParams = new URLSearchParams(data);
+
+  const query = searchParams.toString();
+
+  console.log("This is the query string", query);
 
   // Append the query string to the URL to satisfy the final test
   // This triggers the GET request by updating the browser's address bar
-  window.location.search = queryString.toString();
+ 
 }
   // TODO: preventDefault, build a data object, use URLSearchParams
   // TODO: append query string to GET request URL

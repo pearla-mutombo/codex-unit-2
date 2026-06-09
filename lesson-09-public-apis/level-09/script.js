@@ -33,7 +33,7 @@ async function handleSubmit(event) {
       const img = document.createElement("img");
       img.src = result.url;
       img.alt = "Random Meme";
-      img.style.maxWidth = "100%;" // to ensure it ftis the screen
+      img.style.maxWidth = "100%;" // to ensure it fits the screen
     
       // Render success - a meme into a DOM (Render the 'meme' property)
       successEl.innerText = "Succes! Here is your meme:";

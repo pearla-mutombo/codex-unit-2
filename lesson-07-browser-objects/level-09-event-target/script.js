@@ -1,9 +1,8 @@
 // Level 09 — event.target starter
 // TODO: inside submit handler inspect event.target and event.currentTarget
 const formElement = document.getElementById("sample-form");
-if (formElement) {
-  formElement.onsubmit = handleSubmit;
-}
+
+formElement.onsubmit = handleSubmit;
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -12,7 +11,7 @@ function handleSubmit(event) {
   const form = event.target;
   
   // Explicit string log containing the required keyword phrase
-  console.log("event.target");
+  console.log("event.target is the element that dispatched the event; it's incredibility uselful to find which elements of a form was interacted with.");
   
   debugger;
 }

@@ -14,7 +14,7 @@ function handleSubmit(event) {
   event.preventDefault();
 
   // 3. Log an explanation of onsubmit to the console as requested
-  console.log("onsubmit");
+  console.log("onsubmit is functions as an event, where it waits until user, uses the submit button");
 }
 
 // 4. Assign the function reference to form.onsubmit (do not call it with parenthesis)

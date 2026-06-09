@@ -9,6 +9,11 @@ const divTag = document.getElementById("content");
 console.log(divTag.innerHTML);
 divTag.innerHTML = "<strong>innerHTML</strong> vs innerText";
 console.log(divTag.innerHTML);
+// Explain what is innnerHTML?
+console.log("innerHTML returns a string of HTML markup or `injects it`; changing it reparses the element's contents");
+
+// Explain what is innterText? 
+console.log("innerText shows visible text; innerHTML contains markup.");
 
 debugger;
 

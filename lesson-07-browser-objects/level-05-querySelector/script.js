@@ -5,15 +5,14 @@
 const pTag = document.querySelector('#content');
 
 // 2. Log previous innerHTML
-console.log('before:', pTag && pTag.innerHTML);
+console.log(pTag.innerHTML);
 
 // 3. Set element.innerHTML to explain both querySelector and mention innerHTML/innerText
-if (pTagt) {
-  pTag.innerHTML = "Using querySelector lets you change the innerHTML or innerText of any CSS selector.";
-}
+pTag.innerHTML = "Using querySelector lets you change the innerHTML or innerText of any CSS selector.";
+
 
 // 4. Log the updated innerHTML
-console.log('after:',pTag && pTag.innerHTML);
+console.log(pTag.innerHTML);
 
 // 5. Use the debugger to inspect the element
 debugger;

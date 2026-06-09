@@ -1,43 +1,41 @@
 const formTag = document.getElementById("jokeForm");
-const jokeTag = document.querySelector("#joke");
-const errorTag = document.querySelector("#error");
+const jokeTag = document.getElementById("joke");
+const errorTag = document.getElementById("error");
 
 formTag.onsubmit = handleSubmit;
 
- async function handleSubmit(event) {
+async function handleSubmit(event) {
   //prevent the website from refreshing
   event.preventDefault();
+
   jokeTag.innerText = "";
   errorTag.innerText = "";
-  
+
   // create  a data object with an "api-key" property (quoted when hyphenated)
   const data = {
-    "api-key": "883a9659d69045f1bb0fbd245315543a"
+    "api-key": "883a9659d69045f1bb0fbd245315543a",
   };
 
   // 2. convert data into a query string
   const queryString = new URLSearchParams(data).toString();
   try {
     // Fetch the joke ( assuming humor API uses GET for random jokes- since GET is always a default if not specified)
-    const response = await fetch("https://api.humorapi.com/jokes/random?" + queryString);
-
-    // 3.parse the response use response.json()
+    // use async/await to fetch joke from the API endpoint
+    const response = await fetch(
+      "https://api.humorapi.com/jokes/random?" + queryString,
+    );
     const result = await response.json();
-    // 4. handle non-2xx responses (like invalid API keys/error)
-      if (!response.ok) {
-        //use the error message from the api or a fallback
-        errorTag.innerText = result.message || "Invalid API Key or request error";
-        return;
-      }
-    // 5. handle success - a joke into a DOM (Render the "joke" property)
-    jokeTag.innerText = result.joke;
-    
+
+    if (!response.ok) {
+      errorTag.innerText = result.message || "Invalid API Key or request error";
+    } else {
+      jokeTag.innerText = result.joke;
+    }
   } catch (error) {
     console.error("Error fetching joke:", error);
     errorTag.innerText = "Failed to load joke.";
   }
 
-  
   // TODO: Create a `data` object with an "api-key" property (quoted when hyphenated)
   // TODO: Convert `data` into a query string and fetch jokes (or send as header if API requires)
   // TODO: Parse response and render a joke into the DOM. On invalid key, show an error message in the page
